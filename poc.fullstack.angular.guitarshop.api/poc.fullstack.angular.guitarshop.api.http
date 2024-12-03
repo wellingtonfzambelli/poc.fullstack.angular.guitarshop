@@ -1,0 +1,6 @@
+@poc.fullstack.angular.guitarshop.api_HostAddress = http://localhost:5087
+
+GET {{poc.fullstack.angular.guitarshop.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
