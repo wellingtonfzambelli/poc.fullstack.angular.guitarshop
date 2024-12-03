@@ -36,10 +36,10 @@ public static class ProductExtensions
         var typeList = new List<string>();
 
         if (!string.IsNullOrEmpty(brands))
-            brandList.AddRange(brands.ToLower().Split(',').ToList());         
+            brandList.AddRange(brands.ToLower().Split(',').ToList());
 
         if (!string.IsNullOrEmpty(types))
-            typeList.AddRange(types.ToLower().Split(',').ToList());         
+            typeList.AddRange(types.ToLower().Split(',').ToList());
 
         query = query.Where(p => brandList.Count() == 0 || brandList.Contains(p.Brand.ToLower()));
         query = query.Where(p => typeList.Count() == 0 || typeList.Contains(p.Type.ToLower()));

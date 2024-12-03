@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NuGet.ContentModel;
 using poc.fullstack.angular.guitarshop.api.Entities;
 
 namespace poc.fullstack.angular.guitarshop.api.Data;
