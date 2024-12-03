@@ -69,7 +69,12 @@ Choose the options bellow during the angular installation <br>
 ✔ Which stylesheet format would you like to use? Sass (SCSS) <br>
 ✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? no <br><br/>
 
-4 - After the installation, get in the new angular folder 
+4 - After the installation, get in the new angular folder   
 ```VS Code terminal
 cd poc.fullstack.angular.guitarshop.frontend
+```
+
+5 - Executes the command bellow to run the application  
+```VS Code terminal
+ng serve
 ```
