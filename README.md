@@ -2,17 +2,17 @@
 
 # Stacks of this project
 
-Backend
-.NET 8
-Entity Framework Core (Migrations)
-MySQL
-Web Api
-Swagger
-Visual Studio Community 2022
-Google Chrome (using React DevTools) - main browser
+__Backend__
+- .NET 8
+- Entity Framework Core (Migrations)
+- MySQL
+- Web Api
+- Swagger
+- Visual Studio Community 2022
+- Google Chrome (using React DevTools) - main browser
 
-Frontend - Angular
-Angular 18
+  
+__Frontend - Angular__
 
 
 # Backend - Setting up the application
