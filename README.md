@@ -37,8 +37,34 @@ It'll run the SEED logic on the "Progran.cs" file for the initial data in the 'P
 # Frontend - Setting up the application
 1 - Open the workspace "poc.fullstack.guitarshop.frontend" on the Visual Studio Code
 
-2 - On the terminal execute the commands bellow
+2 - Install the node.js
+
+3 - On the terminal execute the commands bellow
 
 ```VS Code terminal
 npm install
 ```
+
+```VS Code terminal
+node --version
+```
+
+```VS Code terminal
+npm --version
+```
+
+```VS Code terminal
+npm install -g @angular/cli
+```
+
+```VS Code terminal
+ng version
+```
+
+```VS Code terminal
+ng new client
+```
+
+Choose the options bellow during the angular installation
+✔ Which stylesheet format would you like to use? Sass (SCSS)
+✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? no
