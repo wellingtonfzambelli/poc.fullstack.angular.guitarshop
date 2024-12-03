@@ -66,5 +66,5 @@ ng new client
 ```
 
 Choose the options bellow during the angular installation <br>
-✔ Which stylesheet format would you like to use? Sass (SCSS)  
+✔ Which stylesheet format would you like to use? Sass (SCSS) <br>
 ✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? no
