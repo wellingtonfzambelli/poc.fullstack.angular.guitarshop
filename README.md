@@ -74,7 +74,16 @@ Choose the options bellow during the angular installation <br>
 cd poc.fullstack.angular.guitarshop.frontend
 ```
 
-5 - Executes the command bellow to run the application  
+5 - Install the Angular Material to work with template components  
+```VS Code terminal
+ng add @angular/material
+```
+Choose the options bellow during the angular installation <br>
+✔ Choose a prebuilt theme name, or "custom" for a custom theme: Azure/Blue
+✔ Set up global Angular Material typography styles? no
+✔ Include the Angular animations module? Include and enable animations
+
+6 - Executes the command bellow to run the application  
 ```VS Code terminal
 ng serve
 ```
@@ -130,7 +139,7 @@ Run the application using https://localhost:myport
 Before certificate  
 ![image](https://github.com/user-attachments/assets/b71c1f5d-003f-4a3a-98c2-9a8f8e41d2ea)  
 
-After cetificate setup  
+After certificate setup  
 ![image](https://github.com/user-attachments/assets/350d503a-9550-4711-a037-c2592c4457a0)  
 
 
