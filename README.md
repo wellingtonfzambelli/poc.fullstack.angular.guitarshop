@@ -79,7 +79,7 @@ cd poc.fullstack.angular.guitarshop.frontend
 ng serve
 ```
 
-# Install Browser Certificate
+# Installing Browser Certificate
 Angular works better with a broser certificate. Because of that we need to generate a free localhost certificate
 
 Run the commands bellow to install it.
@@ -125,9 +125,12 @@ Open the "angular.json" file and add the "options" code bellow inside the proper
   },
 ```  
 
-Before certificate
-![image](https://github.com/user-attachments/assets/b71c1f5d-003f-4a3a-98c2-9a8f8e41d2ea)
+Run the application using https://localhost:myport
 
-After cetificate setup
-![image](https://github.com/user-attachments/assets/350d503a-9550-4711-a037-c2592c4457a0)
+Before certificate  
+![image](https://github.com/user-attachments/assets/b71c1f5d-003f-4a3a-98c2-9a8f8e41d2ea)  
+
+After cetificate setup  
+![image](https://github.com/user-attachments/assets/350d503a-9550-4711-a037-c2592c4457a0)  
+
 
