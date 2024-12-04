@@ -78,3 +78,56 @@ cd poc.fullstack.angular.guitarshop.frontend
 ```VS Code terminal
 ng serve
 ```
+
+# Install Browser Certificate
+Angular works better with a broser certificate. Because of that we need to generate a free localhost certificate
+
+Run the commands bellow to install it.
+
+```VS Code terminal
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+iwr -useb get.scoop.sh | iex
+```
+
+```VS Code terminal
+scoop bucket add extras
+```  
+
+```VS Code terminal
+scoop install mkcert
+```
+
+Create a root folder called 'ssl' get inside it  
+
+```VS Code terminal
+cd ssl
+```  
+
+```VS Code terminal
+mkcert -install
+```  
+
+```VS Code terminal
+mkcert localhost
+```  
+
+it will generate the certificates files  
+![image](https://github.com/user-attachments/assets/44ba92ab-ab47-42df-a4b8-ffe2c3fd8ed0)
+
+Open the "angular.json" file and add the "options" code bellow inside the property "serve"  
+```VS Code terminal
+"serve": {
+  "builder": "@angular-devkit/build-angular:dev-server",
+  "options": {
+    "ssl": true,
+    "sslCert": "ssl/localhost.pem",
+    "sslKey": "ssl/localhost-key.pem"
+  },
+```  
+
+Before certificate
+![image](https://github.com/user-attachments/assets/b71c1f5d-003f-4a3a-98c2-9a8f8e41d2ea)
+
+After cetificate setup
+![image](https://github.com/user-attachments/assets/350d503a-9550-4711-a037-c2592c4457a0)
+
