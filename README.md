@@ -13,7 +13,9 @@ __Backend__
 
   
 __Frontend - Angular 18__
-- mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_  
+- mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
+- Angular Material - _(https://material.angular.io/)_
+- TailWinds CSS - _(https://tailwindcss.com/)_
 
 # Backend - Setting up the application
 1 - Run migration commands
