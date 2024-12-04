@@ -85,7 +85,12 @@ Choose the options bellow during the angular installation <br>
 ✔ Set up global Angular Material typography styles? no  
 ✔ Include the Angular animations module? Include and enable animations  
 
-6 - Executes the command bellow to run the application  
+6 - Install Tailwind CSS  
+```VS Code terminal
+npm install -D tailwindcss postcss autoprefixer
+```  
+
+7 - Executes the command bellow to run the application  
 ```VS Code terminal
 ng serve
 ```
