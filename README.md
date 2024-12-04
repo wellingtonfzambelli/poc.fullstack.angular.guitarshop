@@ -12,7 +12,7 @@ __Backend__
 - Google Chrome (using React DevTools) - main browser
 
   
-__Frontend - Angular__
+__Frontend - Angular 18__
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_  
 
 # Backend - Setting up the application
