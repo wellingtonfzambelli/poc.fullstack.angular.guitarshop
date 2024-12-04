@@ -7,6 +7,8 @@ using poc.fullstack.angular.guitarshop.api.Extensions;
 using poc.fullstack.angular.guitarshop.api.Helper.Pagination;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
+
+[Route("api/v1/[controller]")]
 public sealed class ProductController : ControllerBase
 {
     private readonly ILogger<ProductController> _logger;
@@ -23,9 +25,9 @@ public sealed class ProductController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IList<Product>>> GetProductsAsync
+    public async Task<ActionResult<ProductPaginationParamsResponseDto>> GetProductsAsync
     (
-        [FromQuery] ProductPaginationParamsDto productParamsDto,
+        [FromQuery] ProductPaginationParamsRequestDto productParamsDto,
         CancellationToken ct
     )
     {
@@ -42,10 +44,15 @@ public sealed class ProductController : ControllerBase
                 productParamsDto.PageSize,
                 ct
             );
-
-        Response.AddPagination(products.PaginationMetaDataDto);
-
-        return products;
+        
+        return new ProductPaginationParamsResponseDto 
+        {
+            CurrentPage = products.PaginationMetaDataDto.CurrentPage,
+            PageSize = products.PaginationMetaDataDto.PageSize,
+            TotalCount = products.PaginationMetaDataDto.TotalCount,
+            TotalPages = products.PaginationMetaDataDto.TotalPages,
+            Data = products
+        };
     }
 
     [HttpGet("{id}")]

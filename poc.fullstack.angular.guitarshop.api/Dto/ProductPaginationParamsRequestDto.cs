@@ -2,7 +2,7 @@
 
 namespace poc.fullstack.angular.guitarshop.api.Dto;
 
-public sealed class ProductPaginationParamsDto : PaginationPraramsDto
+public sealed class ProductPaginationParamsRequestDto : PaginationPraramsDto
 {
     public string OrderBy { get; set; }
     public string SearchTerm { get; set; }
