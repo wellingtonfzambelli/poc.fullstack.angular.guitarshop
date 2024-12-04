@@ -16,7 +16,7 @@ __Frontend - Angular 18__
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Angular Material - _(https://material.angular.io/)_
 - Tailwind CSS - _(https://tailwindcss.com/)_
-- Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense)
+- Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
 # Backend - Setting up the application
 1 - Run migration commands
