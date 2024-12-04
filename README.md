@@ -91,10 +91,29 @@ npm install -D tailwindcss postcss autoprefixer
 ```
 ```VS Code terminal
 npx tailwindcss init
+```
+ 
+7 - It will generate the file "tailwind.config.js".  
+Open it and add the code bellow
+```VS Code terminal
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
 ```  
-It will generate the file "tailwind.config.js"   
 
-7 - Executes the command bellow to run the application  
+8 - Now open the styles.scss and add the code bellow as well  
+```VS Code terminal
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+9 - Executes the command bellow to run the application  
 ```VS Code terminal
 ng serve
 ```
