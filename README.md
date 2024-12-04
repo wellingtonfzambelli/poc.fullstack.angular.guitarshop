@@ -88,7 +88,11 @@ Choose the options bellow during the angular installation <br>
 6 - Install Tailwind CSS  
 ```VS Code terminal
 npm install -D tailwindcss postcss autoprefixer
+```
+```VS Code terminal
+npx tailwindcss init
 ```  
+It will generate the file "tailwind.config.js"   
 
 7 - Executes the command bellow to run the application  
 ```VS Code terminal
