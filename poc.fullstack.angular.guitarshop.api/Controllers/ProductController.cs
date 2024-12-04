@@ -70,12 +70,12 @@ public sealed class ProductController : ControllerBase
         return Ok(product);
     }
 
-    [HttpGet("filters")]
-    public async Task<IActionResult> GetFilters(CancellationToken ct)
-    {
-        var brands = await _context.Products.Select(s => s.Brand).Distinct().ToListAsync(ct);
-        var types = await _context.Products.Select(s => s.Type).Distinct().ToListAsync(ct);
+    [HttpGet("brands")]
+    public async Task<IActionResult> GetBrandsAsync(CancellationToken ct) =>
+        Ok(await _context.Products.Select(s => s.Brand).Distinct().ToListAsync(ct));
+        
 
-        return Ok(new { brands, types });
-    }
+    [HttpGet("types")]
+    public async Task<IActionResult> GetTypesAsync(CancellationToken ct) =>
+        Ok(await _context.Products.Select(s => s.Type).Distinct().ToListAsync(ct));
 }
