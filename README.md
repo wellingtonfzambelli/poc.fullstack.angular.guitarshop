@@ -13,7 +13,7 @@ __Backend__
 
   
 __Frontend - Angular__
-mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_  
+- mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_  
 
 # Backend - Setting up the application
 1 - Run migration commands
