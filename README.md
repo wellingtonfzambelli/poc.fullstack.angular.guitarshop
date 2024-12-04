@@ -79,9 +79,9 @@ cd poc.fullstack.angular.guitarshop.frontend
 ng add @angular/material
 ```
 Choose the options bellow during the angular installation <br>
-✔ Choose a prebuilt theme name, or "custom" for a custom theme: Azure/Blue
-✔ Set up global Angular Material typography styles? no
-✔ Include the Angular animations module? Include and enable animations
+✔ Choose a prebuilt theme name, or "custom" for a custom theme: Azure/Blue  
+✔ Set up global Angular Material typography styles? no  
+✔ Include the Angular animations module? Include and enable animations  
 
 6 - Executes the command bellow to run the application  
 ```VS Code terminal
