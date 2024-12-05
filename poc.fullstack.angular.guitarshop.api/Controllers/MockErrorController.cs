@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using poc.fullstack.angular.guitarshop.api.Dto;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
 
@@ -18,13 +19,13 @@ public sealed class MockErrorController : ControllerBase
     public IActionResult GetUnauthorized() =>
         Unauthorized();
 
-    [HttpGet("validation-error")]
-    public IActionResult GetValidationErrord()
+    [HttpPost("validation-error")]
+    public IActionResult GetValidationError(CreateProductRequestDto request)
     {
-        ModelState.AddModelError("Problem1", "This is the first error");
-        ModelState.AddModelError("Problem1", "This is the second error");
+        if (ModelState.IsValid)
+            return Ok();
 
-        return ValidationProblem();
+        return BadRequest(ModelState);
     }
 
     [HttpGet("server-error")]

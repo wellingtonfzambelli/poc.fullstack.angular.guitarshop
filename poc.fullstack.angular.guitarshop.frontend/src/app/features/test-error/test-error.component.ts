@@ -13,9 +13,17 @@ import { MatButton } from '@angular/material/button';
 
 export class TestErrorComponent {
   public baseUrl = 'https://localhost:6001/api/v1/'
+  public validationErrors?: string[];
 
   constructor(private http: HttpClient) {
 
+  }
+
+  get400ValidationError() {
+    this.http.post(this.baseUrl + 'mock-error/validation-error', {}).subscribe({
+      next: response => console.log(response),
+      error: error => this.validationErrors = error
+    })
   }
 
   get400Error() {
@@ -41,13 +49,6 @@ export class TestErrorComponent {
 
   get500Error() {
     this.http.get(this.baseUrl + 'mock-error/server-error').subscribe({
-      next: response => console.log(response),
-      error: error => console.log(error)
-    })
-  }
-
-  validationError() {
-    this.http.get(this.baseUrl + 'mock-error/validation-error').subscribe({
       next: response => console.log(response),
       error: error => console.log(error)
     })
