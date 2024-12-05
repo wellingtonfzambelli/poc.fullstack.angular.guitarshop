@@ -20,7 +20,8 @@ export class GuitarShopService {
   getProducts(shopFilterRequest: CatalogFilterRequest) {
     let params = new HttpParams();
 
-    params = params.append('pageSize', 10);
+    params = params.append('pageSize', shopFilterRequest.pageSize);
+    params = params.append('pageNumber', shopFilterRequest.pageNumber);
 
     if(shopFilterRequest.brands.length > 0)
       params = params.append('brands', shopFilterRequest.brands.join(','));

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GuitarShopService } from '../../core/services/shop.service';
+import { GuitarShopService } from '../../core/services/guitar-shop.service';
 import { Product } from '../../shared/models/Product';
 import { ProductItemComponent } from "./product-item/product-item.component";
 import { MatDialog } from '@angular/material/dialog';
@@ -9,6 +9,8 @@ import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { Pagination } from '../../shared/models/Pagination';
 
 @Component({
   selector: 'app-shop',
@@ -19,14 +21,16 @@ import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
     MatMenu,
     MatSelectionList,
     MatListOption,
-    MatMenuTrigger
+    MatMenuTrigger,
+    MatPaginator
 ],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.scss'
 })
 export class CatalogComponent implements OnInit {
-  public products: Product[] = [];
-  public shopFilterRequest = new CatalogFilterRequest();
+  public pagination?: Pagination<Product>;
+  public catalogFilterRequest = new CatalogFilterRequest();
+  public pageSizeOptions = [5,10,15,20];
   
   public sortOptions = [
     {name: 'Alphabetical', value: 'name'},
@@ -51,10 +55,10 @@ export class CatalogComponent implements OnInit {
   }
 
   getProducts() {
-    this.guitarShopService.getProducts(this.shopFilterRequest).subscribe({
-      next: response => this.products = response.data,
+    this.guitarShopService.getProducts(this.catalogFilterRequest).subscribe({
+      next: response => this.pagination = response,
       error: error => console.log(error)
-      //complete: () => console.log('complete')
+      //,complete: () => console.log(this.pagination)
     })  
   }
 
@@ -62,16 +66,17 @@ export class CatalogComponent implements OnInit {
     const dialogRef = this.dialogService.open(FiltersDialogComponent, {
       minWidth: '500px',
       data: {
-        selectedBrands: this.shopFilterRequest.brands,
-        selectedTypes: this.shopFilterRequest.types
+        selectedBrands: this.catalogFilterRequest.brands,
+        selectedTypes: this.catalogFilterRequest.types
       }
     });
     
     dialogRef.afterClosed().subscribe({
       next: result => {
         if(result){
-          this.shopFilterRequest.brands = result.selectedBrands;
-          this.shopFilterRequest.types = result.selectedTypes;
+          this.catalogFilterRequest.brands = result.selectedBrands;
+          this.catalogFilterRequest.types = result.selectedTypes;
+          this.catalogFilterRequest.pageNumber = 1;
           this.getProducts();
         }
       }
@@ -82,8 +87,15 @@ export class CatalogComponent implements OnInit {
     const selectedOption = event.options[0];    
 
     if(selectedOption) {
-      this.shopFilterRequest.orderBy = selectedOption.value;
+      this.catalogFilterRequest.orderBy = selectedOption.value;
+      this.catalogFilterRequest.pageNumber = 1;
       this.getProducts();
     }
+  }
+
+  handlePaginationEvent(event: PageEvent) {
+    this.catalogFilterRequest.pageNumber = event.pageIndex + 1;
+    this.catalogFilterRequest.pageSize = event.pageSize;
+    this.getProducts();
   }
 }

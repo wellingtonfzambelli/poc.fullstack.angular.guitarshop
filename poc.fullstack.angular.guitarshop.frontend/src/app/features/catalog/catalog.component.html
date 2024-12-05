@@ -1,18 +1,31 @@
 <div class="flex flex-col gap-3">
-    <div class="flex justify-end gap-3">
-        <button mat-stroked-button (click)="openFiltersDialog()">
-            <mat-icon>filter_list</mat-icon>
-            Filters
-        </button>
+    <div class="flex justify-between">
+        <mat-paginator
+            class="bg-white"
+            (page)="handlePaginationEvent($event)"
+            [length]="pagination?.totalCount"
+            [pageSize]="catalogFilterRequest.pageSize"
+            [pageIndex]="catalogFilterRequest.pageNumber - 1"
+            [pageSizeOptions]="pageSizeOptions"
+            [showFirstLastButtons]="true"
+            arial-label="Select page"
+        ></mat-paginator>
 
-        <button mat-stroked-button [matMenuTriggerFor]="sortMenu">
-            <mat-icon>swap_vert</mat-icon>
-            Sort
-        </button>
+        <div class="flex gap-3">
+            <button mat-stroked-button (click)="openFiltersDialog()">
+                <mat-icon>filter_list</mat-icon>
+                Filters
+            </button>
+    
+            <button mat-stroked-button [matMenuTriggerFor]="sortMenu">
+                <mat-icon>swap_vert</mat-icon>
+                Sort
+            </button>
+        </div>
     </div>
 
     <div class="grid grid-cols-5 gap-5">
-        @for (product of products; track product.id) {
+        @for (product of pagination?.data; track product.id) {
             <app-product-item [product]="product"></app-product-item>
         }
     </div>
@@ -21,7 +34,7 @@
 <mat-menu #sortMenu="matMenu">
     <mat-selection-list [multiple]="false" (selectionChange)="onSortChange($event)">
         @for(sort of sortOptions; track $index) {
-            <mat-list-option [value]="sort.value" [selected]="shopFilterRequest.orderBy === sort.value">
+            <mat-list-option [value]="sort.value" [selected]="catalogFilterRequest.orderBy === sort.value">
                 {{sort.name}}
             </mat-list-option>
         }

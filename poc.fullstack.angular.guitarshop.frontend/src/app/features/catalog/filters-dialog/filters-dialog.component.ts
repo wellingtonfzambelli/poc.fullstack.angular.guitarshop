@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { GuitarShopService } from '../../../core/services/shop.service';
+import { GuitarShopService } from '../../../core/services/guitar-shop.service';
 import { MatDivider } from '@angular/material/divider';
 import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
