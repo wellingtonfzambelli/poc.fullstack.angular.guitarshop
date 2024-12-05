@@ -9,6 +9,7 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
+import { ShopFilterRequest } from '../../shared/models/ShopFilterRequest';
 
 @Component({
   selector: 'app-shop',
@@ -27,9 +28,8 @@ import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angula
 })
 export class ShopComponent implements OnInit {
   public products: Product[] = [];
-  public selectedBrands: string[] = [];
-  public selectedTypes: string[] = [];
-  public selectedSort: string = 'name';
+  public shopFilterRequest = new ShopFilterRequest();
+  
   public sortOptions = [
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low-High', value: 'priceAsc'},
@@ -53,7 +53,7 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts() {
-    this.guitarShopService.getProducts(this.selectedBrands, this.selectedTypes, this.selectedSort).subscribe({
+    this.guitarShopService.getProducts(this.shopFilterRequest).subscribe({
       next: response => this.products = response.data,
       error: error => console.log(error)
       //complete: () => console.log('complete')
@@ -64,16 +64,16 @@ export class ShopComponent implements OnInit {
     const dialogRef = this.dialogService.open(FiltersDialogComponent, {
       minWidth: '500px',
       data: {
-        selectedBrands: this.selectedBrands,
-        selectedTypes: this.selectedTypes
+        selectedBrands: this.shopFilterRequest.brands,
+        selectedTypes: this.shopFilterRequest.types
       }
     });
     
     dialogRef.afterClosed().subscribe({
       next: result => {
         if(result){
-          this.selectedBrands = result.selectedBrands;
-          this.selectedTypes = result.selectedTypes;
+          this.shopFilterRequest.brands = result.selectedBrands;
+          this.shopFilterRequest.types = result.selectedTypes;
           this.getProducts();
         }
       }
@@ -84,7 +84,7 @@ export class ShopComponent implements OnInit {
     const selectedOption = event.options[0];    
 
     if(selectedOption) {
-      this.selectedSort = selectedOption.value;
+      this.shopFilterRequest.orderBy = selectedOption.value;
       this.getProducts();
     }
   }

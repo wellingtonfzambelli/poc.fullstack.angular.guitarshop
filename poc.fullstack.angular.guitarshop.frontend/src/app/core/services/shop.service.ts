@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/Pagination';
 import { Product } from '../../shared/models/Product';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { ShopFilterRequest } from '../../shared/models/ShopFilterRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +17,19 @@ export class ShopService {
 
   }
   
-  getProducts(brands?: string[], types?: string[], sort?: string ) {
+  getProducts(shopFilterRequest: ShopFilterRequest) {
     let params = new HttpParams();
 
     params = params.append('pageSize', 10);
 
-    if(brands && brands.length > 0)
-      params = params.append('brands', brands.join(','));
+    if(shopFilterRequest.brands.length > 0)
+      params = params.append('brands', shopFilterRequest.brands.join(','));
 
-    if(types && types.length > 0)
-      params = params.append('types', types.join(','));
+    if(shopFilterRequest.types.length > 0)
+      params = params.append('types', shopFilterRequest.types.join(','));
 
-    if(sort) {
-      params = params.append('orderBy', sort);
+    if(shopFilterRequest.orderBy) {
+      params = params.append('orderBy', shopFilterRequest.orderBy);
     }
 
     return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product', {params})
