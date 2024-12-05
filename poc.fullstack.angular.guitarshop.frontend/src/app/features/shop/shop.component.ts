@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 
 @Component({
   selector: 'app-shop',
@@ -14,7 +16,11 @@ import { MatIcon } from '@angular/material/icon';
     MatCard,
     ProductItemComponent,
     MatButton,
-    MatIcon
+    MatIcon,
+    MatMenu,
+    MatSelectionList,
+    MatListOption,
+    MatMenuTrigger
 ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
@@ -23,7 +29,13 @@ export class ShopComponent implements OnInit {
   public products: Product[] = [];
   public selectedBrands: string[] = [];
   public selectedTypes: string[] = [];
-
+  public selectedSort: string = 'name';
+  public sortOptions = [
+    {name: 'Alphabetical', value: 'name'},
+    {name: 'Price: Low-High', value: 'priceAsc'},
+    {name: 'Price: High-Low', value: 'priceDesc'},
+  ];
+  
   constructor(private guitarShopService:ShopService, private dialogService:MatDialog) {
 
   }
@@ -37,7 +49,11 @@ export class ShopComponent implements OnInit {
     
     this.guitarShopService.getTypes();
     
-    this.guitarShopService.getProducts().subscribe({
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.guitarShopService.getProducts(this.selectedBrands, this.selectedTypes, this.selectedSort).subscribe({
       next: response => this.products = response.data,
       error: error => console.log(error)
       //complete: () => console.log('complete')
@@ -58,13 +74,18 @@ export class ShopComponent implements OnInit {
         if(result){
           this.selectedBrands = result.selectedBrands;
           this.selectedTypes = result.selectedTypes;
-          
-          this.guitarShopService.getProducts(this.selectedBrands, this.selectedTypes).subscribe({
-            next: response => this.products = response.data,
-            error: error => console.log(error)
-          })
+          this.getProducts();
         }
       }
     })
+  }
+
+  onSortChange(event: MatSelectionListChange) {
+    const selectedOption = event.options[0];    
+
+    if(selectedOption) {
+      this.selectedSort = selectedOption.value;
+      this.getProducts();
+    }
   }
 }

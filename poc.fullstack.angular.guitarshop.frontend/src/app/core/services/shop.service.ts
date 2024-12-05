@@ -16,7 +16,7 @@ export class ShopService {
 
   }
   
-  getProducts(brands?: string[], types?: string[]) {
+  getProducts(brands?: string[], types?: string[], sort?: string ) {
     let params = new HttpParams();
 
     params = params.append('pageSize', 10);
@@ -26,6 +26,10 @@ export class ShopService {
 
     if(types && types.length > 0)
       params = params.append('types', types.join(','));
+
+    if(sort) {
+      params = params.append('orderBy', sort);
+    }
 
     return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product', {params})
   }
