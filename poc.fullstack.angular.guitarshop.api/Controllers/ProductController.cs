@@ -72,7 +72,7 @@ public sealed class ProductController : ControllerBase
 
     [HttpGet("brands")]
     public async Task<IActionResult> GetBrandsAsync(CancellationToken ct) =>
-        Ok(await _context.Products.Select(s => s.Brand).Distinct().ToListAsync(ct));
+        Ok(await _context.Products.Select(s => s.Brand).Distinct().Take(8).ToListAsync(ct));
         
 
     [HttpGet("types")]

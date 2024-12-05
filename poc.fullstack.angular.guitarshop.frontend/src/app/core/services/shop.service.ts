@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/Pagination';
 import { Product } from '../../shared/models/Product';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,18 @@ export class ShopService {
 
   }
   
-  getProducts() {
-    return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product?pageSize=10')
+  getProducts(brands?: string[], types?: string[]) {
+    let params = new HttpParams();
+
+    params = params.append('pageSize', 10);
+
+    if(brands && brands.length > 0)
+      params = params.append('brands', brands.join(','));
+
+    if(types && types.length > 0)
+      params = params.append('types', types.join(','));
+
+    return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product', {params})
   }
 
   getTypes() {

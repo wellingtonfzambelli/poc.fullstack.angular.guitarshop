@@ -21,6 +21,8 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class ShopComponent implements OnInit {
   public products: Product[] = [];
+  public selectedBrands: string[] = [];
+  public selectedTypes: string[] = [];
 
   constructor(private guitarShopService:ShopService, private dialogService:MatDialog) {
 
@@ -44,7 +46,25 @@ export class ShopComponent implements OnInit {
 
   openFiltersDialog() {
     const dialogRef = this.dialogService.open(FiltersDialogComponent, {
-      minWidth: '500px'
+      minWidth: '500px',
+      data: {
+        selectedBrands: this.selectedBrands,
+        selectedTypes: this.selectedTypes
+      }
+    });
+    
+    dialogRef.afterClosed().subscribe({
+      next: result => {
+        if(result){
+          this.selectedBrands = result.selectedBrands;
+          this.selectedTypes = result.selectedTypes;
+          
+          this.guitarShopService.getProducts(this.selectedBrands, this.selectedTypes).subscribe({
+            next: response => this.products = response.data,
+            error: error => console.log(error)
+          })
+        }
+      }
     })
   }
 }
