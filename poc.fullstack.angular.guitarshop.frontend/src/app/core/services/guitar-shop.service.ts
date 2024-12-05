@@ -38,6 +38,10 @@ export class GuitarShopService {
     return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product', {params})
   }
 
+  getProductById(id: string) {
+    return this.http.get<Product>(this.baseUrlGuitarShop + 'product/' + id);
+  }
+
   getTypes() {
     if(this.types.length > 0) 
       return;
