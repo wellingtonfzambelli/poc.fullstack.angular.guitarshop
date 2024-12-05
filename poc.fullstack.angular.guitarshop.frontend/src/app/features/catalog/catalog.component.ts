@@ -11,6 +11,7 @@ import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angula
 import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Pagination } from '../../shared/models/Pagination';
+import { FormsModule, FormSubmittedEvent } from '@angular/forms';
 
 @Component({
   selector: 'app-shop',
@@ -22,7 +23,8 @@ import { Pagination } from '../../shared/models/Pagination';
     MatSelectionList,
     MatListOption,
     MatMenuTrigger,
-    MatPaginator
+    MatPaginator,
+    FormsModule
 ],
   templateUrl: './catalog.component.html',
   styleUrl: './catalog.component.scss'
@@ -91,6 +93,11 @@ export class CatalogComponent implements OnInit {
       this.catalogFilterRequest.pageNumber = 1;
       this.getProducts();
     }
+  }
+
+  onSearchChange() {
+    this.catalogFilterRequest.pageNumber = 1;
+    this.getProducts();
   }
 
   handlePaginationEvent(event: PageEvent) {

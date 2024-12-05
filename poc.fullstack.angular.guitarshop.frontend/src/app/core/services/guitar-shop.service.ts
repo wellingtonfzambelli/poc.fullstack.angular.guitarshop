@@ -17,21 +17,23 @@ export class GuitarShopService {
 
   }
   
-  getProducts(shopFilterRequest: CatalogFilterRequest) {
+  getProducts(catalogFilterRequest: CatalogFilterRequest) {
     let params = new HttpParams();
 
-    params = params.append('pageSize', shopFilterRequest.pageSize);
-    params = params.append('pageNumber', shopFilterRequest.pageNumber);
+    params = params.append('pageSize', catalogFilterRequest.pageSize);
+    params = params.append('pageNumber', catalogFilterRequest.pageNumber);
 
-    if(shopFilterRequest.brands.length > 0)
-      params = params.append('brands', shopFilterRequest.brands.join(','));
+    if(catalogFilterRequest.brands.length > 0)
+      params = params.append('brands', catalogFilterRequest.brands.join(','));
 
-    if(shopFilterRequest.types.length > 0)
-      params = params.append('types', shopFilterRequest.types.join(','));
+    if(catalogFilterRequest.types.length > 0)
+      params = params.append('types', catalogFilterRequest.types.join(','));
 
-    if(shopFilterRequest.orderBy) {
-      params = params.append('orderBy', shopFilterRequest.orderBy);
-    }
+    if(catalogFilterRequest.orderBy)
+      params = params.append('orderBy', catalogFilterRequest.orderBy);
+
+    if(catalogFilterRequest.searchTerm)
+      params = params.append('searchTerm', catalogFilterRequest.searchTerm);
 
     return this.http.get<Pagination<Product>>(this.baseUrlGuitarShop + 'product', {params})
   }
