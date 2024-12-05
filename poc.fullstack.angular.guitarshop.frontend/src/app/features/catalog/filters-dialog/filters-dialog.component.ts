@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ShopService } from '../../../core/services/shop.service';
+import { GuitarShopService } from '../../../core/services/shop.service';
 import { MatDivider } from '@angular/material/divider';
 import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -26,7 +26,7 @@ export class FiltersDialogComponent {
   public selectedTypes: string[] = this.data.selectedTypes;
 
   constructor(
-    public guitarShopService: ShopService, 
+    public guitarShopService: GuitarShopService, 
     private dialogRef: MatDialogRef<FiltersDialogComponent>
   ) 
   { }

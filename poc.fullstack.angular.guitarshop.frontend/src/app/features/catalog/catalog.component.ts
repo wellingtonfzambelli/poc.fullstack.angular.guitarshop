@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ShopService } from '../../core/services/shop.service';
+import { GuitarShopService } from '../../core/services/shop.service';
 import { Product } from '../../shared/models/Product';
-import { MatCard } from '@angular/material/card';
 import { ProductItemComponent } from "./product-item/product-item.component";
 import { MatDialog } from '@angular/material/dialog';
 import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
@@ -9,12 +8,11 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
-import { ShopFilterRequest } from '../../shared/models/ShopFilterRequest';
+import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
 
 @Component({
   selector: 'app-shop',
-  imports: [
-    MatCard,
+  imports: [    
     ProductItemComponent,
     MatButton,
     MatIcon,
@@ -23,12 +21,12 @@ import { ShopFilterRequest } from '../../shared/models/ShopFilterRequest';
     MatListOption,
     MatMenuTrigger
 ],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss'
+  templateUrl: './catalog.component.html',
+  styleUrl: './catalog.component.scss'
 })
-export class ShopComponent implements OnInit {
+export class CatalogComponent implements OnInit {
   public products: Product[] = [];
-  public shopFilterRequest = new ShopFilterRequest();
+  public shopFilterRequest = new CatalogFilterRequest();
   
   public sortOptions = [
     {name: 'Alphabetical', value: 'name'},
@@ -36,7 +34,7 @@ export class ShopComponent implements OnInit {
     {name: 'Price: High-Low', value: 'priceDesc'},
   ];
   
-  constructor(private guitarShopService:ShopService, private dialogService:MatDialog) {
+  constructor(private guitarShopService:GuitarShopService, private dialogService:MatDialog) {
 
   }
 

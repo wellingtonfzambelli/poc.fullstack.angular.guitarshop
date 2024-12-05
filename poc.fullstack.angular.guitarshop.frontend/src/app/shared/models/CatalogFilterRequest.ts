@@ -1,4 +1,4 @@
-export class ShopFilterRequest {
+export class CatalogFilterRequest {
     orderBy: string = 'name';
     searchTerm: string = '';
     types: string[] = [];

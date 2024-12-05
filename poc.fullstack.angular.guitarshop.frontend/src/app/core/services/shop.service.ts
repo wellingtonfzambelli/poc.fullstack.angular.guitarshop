@@ -1,14 +1,14 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Pagination } from '../../shared/models/Pagination';
 import { Product } from '../../shared/models/Product';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { ShopFilterRequest } from '../../shared/models/ShopFilterRequest';
+import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ShopService {
+export class GuitarShopService {
   private baseUrlGuitarShop = 'https://localhost:6001/api/v1/'
   public types: string[] = [];
   public brands: string[] = [];
@@ -17,7 +17,7 @@ export class ShopService {
 
   }
   
-  getProducts(shopFilterRequest: ShopFilterRequest) {
+  getProducts(shopFilterRequest: CatalogFilterRequest) {
     let params = new HttpParams();
 
     params = params.append('pageSize', 10);
