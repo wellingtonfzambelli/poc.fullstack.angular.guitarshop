@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { SnackbarService } from '../services/snackbar.service';
 
@@ -20,11 +20,12 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
               modelStateErrors.push(error.error.errors[key]);
             }
           }
-          
+
           throw modelStateErrors.flat();
-        }else{
+        } else {
           snackbar.error(error.error.title || error.error);
         }
+
       }
 
       if(error.status === 401){
@@ -36,7 +37,8 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       }
 
       if(error.status === 500){
-        router.navigateByUrl('/server-error')
+        const navigationExtras: NavigationExtras = {state: {error: error.error}}
+        router.navigateByUrl('/server-error', navigationExtras)
       }
 
       return throwError(() => error)
