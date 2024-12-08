@@ -10,7 +10,7 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-stroked-button class="w-full">
+            <button mat-stroked-button class="w-full" (click)="cartService.addItemtoCart(product)">
                 <mat-icon>add_shopping_cart</mat-icon>
                 Add to cart
             </button>

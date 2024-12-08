@@ -10,5 +10,4 @@ public sealed class GuitarShopContext : DbContext
     }
 
     public DbSet<Product> Products { get; set; }
-    public DbSet<ShoppingCart> Baskets { get; set; }
 }

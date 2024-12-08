@@ -6,11 +6,13 @@ import { ContactComponent } from './features/contact/contact.component';
 import { TestErrorComponent } from './features/test-error/test-error.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
+import { CartComponent } from './features/cart/cart.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'catalog', component: CatalogComponent },
     { path: 'catalog/:id', component: ProductDetailsComponent },
+    { path: 'cart', component: CartComponent },
     { path: 'contact', component: ContactComponent },
     
     { path: 'test-error', component: TestErrorComponent },

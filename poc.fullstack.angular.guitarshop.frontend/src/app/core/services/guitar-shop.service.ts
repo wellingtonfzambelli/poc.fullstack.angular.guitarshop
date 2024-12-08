@@ -3,13 +3,14 @@ import { Pagination } from '../../shared/models/Pagination';
 import { Product } from '../../shared/models/Product';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class GuitarShopService {
-  private baseUrlGuitarShop = 'https://localhost:6001/api/v1/'
+  private baseUrlGuitarShop = environment.baseUrlGuitarshop
   public types: string[] = [];
   public brands: string[] = [];
 
