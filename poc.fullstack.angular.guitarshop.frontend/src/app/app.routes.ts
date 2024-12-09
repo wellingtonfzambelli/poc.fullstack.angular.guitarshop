@@ -8,6 +8,8 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
 import { CartComponent } from './features/cart/cart.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
+import { LoginComponent } from './features/account/login/login.component';
+import { RegisterComponent } from './features/account/register/register.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,6 +17,8 @@ export const routes: Routes = [
     { path: 'catalog/:id', component: ProductDetailsComponent },
     { path: 'cart', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent },
+    { path: 'accout/login', component: LoginComponent },
+    { path: 'account/register', component: RegisterComponent },
     { path: 'contact', component: ContactComponent },
     
     { path: 'test-error', component: TestErrorComponent },

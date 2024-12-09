@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Dto;
 using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Extensions;
-using System.Security.Claims;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
 
@@ -56,7 +54,7 @@ public class AccountController : ControllerBase
         if (User.Identity?.IsAuthenticated == false)
             return NoContent();
 
-        var user = await _signManager.UserManager.GetUserByEmailAsync(user);
+        var user = await _signManager.UserManager.GetUserByEmailAsync(User);
 
         return Ok(new 
         { 

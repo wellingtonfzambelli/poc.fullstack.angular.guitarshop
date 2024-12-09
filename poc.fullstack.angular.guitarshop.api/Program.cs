@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Configuration;
 using poc.fullstack.angular.guitarshop.api.Data;
