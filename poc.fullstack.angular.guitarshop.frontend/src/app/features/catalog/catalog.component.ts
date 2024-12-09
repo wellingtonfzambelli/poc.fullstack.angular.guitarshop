@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GuitarShopService } from '../../core/services/guitar-shop.service';
+import { CatalogService } from '../../core/services/catalog.service';
 import { Product } from '../../shared/models/Product';
 import { ProductItemComponent } from "./product-item/product-item.component";
 import { MatDialog } from '@angular/material/dialog';
@@ -40,7 +40,7 @@ export class CatalogComponent implements OnInit {
     {name: 'Price: High-Low', value: 'priceDesc'},
   ];
   
-  constructor(private guitarShopService:GuitarShopService, private dialogService:MatDialog) {
+  constructor(private guitarShopService:CatalogService, private dialogService:MatDialog) {
 
   }
 

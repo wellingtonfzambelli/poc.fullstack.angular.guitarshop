@@ -1,6 +1,6 @@
 import { Component, input, OnInit } from '@angular/core';
 import { Product } from '../../../shared/models/Product';
-import { GuitarShopService } from '../../../core/services/guitar-shop.service';
+import { CatalogService } from '../../../core/services/catalog.service';
 import { ActivatedRoute } from '@angular/router';
 import { CurrencyPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
   public productImagePath = environment.imageProductPath;  
 
   constructor(
-    private guitarShopService:GuitarShopService, 
+    private guitarShopService:CatalogService, 
     private activeRoute: ActivatedRoute,
     public cartService: CartService) {
 

@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 
-export class GuitarShopService {
+export class CatalogService {
   private baseUrlGuitarShop = environment.baseUrlGuitarshop
   public types: string[] = [];
   public brands: string[] = [];
