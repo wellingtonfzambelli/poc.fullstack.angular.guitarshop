@@ -34,7 +34,7 @@ export class LoginComponent {
   public onSubmit(){
     this.accountService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.accountService.getUserInfo();
+        this.accountService.getUserInfo().subscribe();
         this.router.navigateByUrl('/catalog');
       }
     })
