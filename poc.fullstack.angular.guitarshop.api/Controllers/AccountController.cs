@@ -47,7 +47,7 @@ public class AccountController : ControllerBase
 
         return NoContent();
     }
-    
+
     [HttpGet("user-info")]
     public async Task<ActionResult> GetUserInfoAsync(CancellationToken ct)
     {
@@ -56,16 +56,16 @@ public class AccountController : ControllerBase
 
         var user = await _signManager.UserManager.GetUserByEmailAsync(User);
 
-        return Ok(new 
-        { 
+        return Ok(new
+        {
             user.FirstName,
             user.LastName,
             user.Email
         });
     }
 
-    [HttpGet("user-info")]
-    public async Task<ActionResult> GetAuthAsync(CancellationToken ct) =>
+    [HttpGet("auth-state")]
+    public async Task<ActionResult> GetAuthStateAsync(CancellationToken ct) =>
         Ok(new { isAuthenticated = User.Identity?.IsAuthenticated ?? false });
 
     [Authorize]

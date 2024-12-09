@@ -17,7 +17,7 @@ export const routes: Routes = [
     { path: 'catalog/:id', component: ProductDetailsComponent },
     { path: 'cart', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent },
-    { path: 'accout/login', component: LoginComponent },
+    { path: 'account/login', component: LoginComponent },
     { path: 'account/register', component: RegisterComponent },
     { path: 'contact', component: ContactComponent },
     
