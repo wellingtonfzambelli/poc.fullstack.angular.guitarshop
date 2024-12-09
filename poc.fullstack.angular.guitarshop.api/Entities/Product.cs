@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using poc.fullstack.angular.guitarshop.api.Entities.Base;
 
 namespace poc.fullstack.angular.guitarshop.api.Entities;
 
-public sealed class Product
+public sealed class Product : BaseEntity
 {
-    [Key]
-    public Guid Id { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
     public double Price { get; set; }

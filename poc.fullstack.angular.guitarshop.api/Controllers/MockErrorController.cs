@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using poc.fullstack.angular.guitarshop.api.Dto;
+using System.Security.Claims;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
 
@@ -31,4 +33,14 @@ public sealed class MockErrorController : ControllerBase
     [HttpGet("server-error")]
     public IActionResult GetExceptiond() =>
         throw new Exception("This is a server error");
+
+    [Authorize]
+    [HttpGet("try-authenticate")]
+    public IActionResult GetSecret()
+    {
+        var name = User.FindFirst(ClaimTypes.Name)?.Value;
+        var id = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        return Ok($"Hello {name} with the id of {id}");
+    }
 }

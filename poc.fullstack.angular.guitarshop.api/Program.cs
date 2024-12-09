@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Configuration;
 using poc.fullstack.angular.guitarshop.api.Data;
+using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +22,9 @@ builder.Services.AddDatabasesConfiguration(builder.Configuration);
 
 // Redis
 builder.Services.AddRedisConfiguration(builder.Configuration);
+
+// Identity
+builder.Services.AddIdentityConfiguration();
 
 var app = builder.Build();
 
@@ -62,6 +67,9 @@ app.UseCors(opt =>
 
 app.UseAuthorization();
 app.MapControllers();
+
+app.MapGroup("api/v1/").MapIdentityApi<UserAppIdentity>(); //api/v1/login
+
 //app.MapFallbackToController("Index", "Fallback");
 
 app.Run();

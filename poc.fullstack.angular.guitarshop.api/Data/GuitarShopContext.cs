@@ -1,13 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Entities;
 
 namespace poc.fullstack.angular.guitarshop.api.Data;
 
-public sealed class GuitarShopContext : DbContext
+public sealed class GuitarShopContext(DbContextOptions options) : IdentityDbContext<UserAppIdentity>(options)
 {
-    public GuitarShopContext(DbContextOptions options) : base(options)
-    {
-    }
-
     public DbSet<Product> Products { get; set; }
 }
