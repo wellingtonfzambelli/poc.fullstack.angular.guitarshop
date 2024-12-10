@@ -1,5 +1,4 @@
 ﻿using poc.fullstack.angular.guitarshop.api.Entities;
-using poc.fullstack.angular.guitarshop.api.Helper.Pagination;
 
 namespace poc.fullstack.angular.guitarshop.api.Dto;
 

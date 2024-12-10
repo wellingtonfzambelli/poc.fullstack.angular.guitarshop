@@ -1,6 +1,6 @@
 ﻿using poc.fullstack.angular.guitarshop.api.Entities;
 
-namespace poc.fullstack.angular.guitarshop.api.Redis;
+namespace poc.fullstack.angular.guitarshop.api.Services.Redis;
 
 public interface ICartServices
 {

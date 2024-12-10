@@ -12,11 +12,11 @@ public class AccountController : ControllerBase
 {
     private readonly SignInManager<UserAppIdentity> _signManager;
 
-    public AccountController(SignInManager<UserAppIdentity> signManager) => 
+    public AccountController(SignInManager<UserAppIdentity> signManager) =>
         _signManager = signManager;
 
     [HttpPost("register")]
-    public async Task<ActionResult> RegisterAsync([FromBody]AccountRegisterRequestDto request, CancellationToken ct)
+    public async Task<ActionResult> RegisterAsync([FromBody] AccountRegisterRequestDto request, CancellationToken ct)
     {
         var user = new UserAppIdentity
         {
@@ -30,7 +30,7 @@ public class AccountController : ControllerBase
 
         if (!result.Succeeded)
         {
-            foreach (var error in result.Errors) 
+            foreach (var error in result.Errors)
                 ModelState.AddModelError(error.Code, error.Description);
 
             return ValidationProblem();

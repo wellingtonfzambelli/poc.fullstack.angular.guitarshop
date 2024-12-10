@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using poc.fullstack.angular.guitarshop.api.Entities;
-using poc.fullstack.angular.guitarshop.api.Redis;
+using poc.fullstack.angular.guitarshop.api.Services.Redis;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
 
@@ -17,7 +17,7 @@ public sealed class CartController(ICartServices _cartService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ShoppingCart>> UpdateCartAsync(ShoppingCart cart, CancellationToken ct)
+    public async Task<ActionResult<ShoppingCart>> UpdateCartAsync([FromBody]ShoppingCart cart, CancellationToken ct)
     {
         var updatedCart = await _cartService.SetCartAsync(cart);
 
@@ -29,7 +29,7 @@ public sealed class CartController(ICartServices _cartService) : ControllerBase
 
     [HttpDelete]
     public async Task<ActionResult> DeleteCart(string id, CancellationToken ct)
-    { 
+    {
         var result = await _cartService.DeleteCartAsync(id);
 
         if (!result)

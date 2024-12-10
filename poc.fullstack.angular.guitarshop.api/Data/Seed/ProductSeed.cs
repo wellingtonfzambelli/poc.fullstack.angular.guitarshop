@@ -1,14 +1,11 @@
 ﻿using poc.fullstack.angular.guitarshop.api.Entities;
 
-namespace poc.fullstack.angular.guitarshop.api.Data;
+namespace poc.fullstack.angular.guitarshop.api.Data.Seed;
 
-public static class DbInitializer
+public static class ProductSeed
 {
-    public static void Initialize(GuitarShopContext context)
-    {
-        if (context.Products.Any()) return;
-
-        var products = new List<Product>
+    public static List<Product> GetSeed() =>
+        new List<Product>
         {
             new  Product
             {
@@ -185,12 +182,4 @@ public static class DbInitializer
                 QuantityInStock = 10
             }
         };
-
-        foreach (var product in products)
-        {
-            context.Products.Add(product);
-        }
-
-        context.SaveChanges();
-    }
 }

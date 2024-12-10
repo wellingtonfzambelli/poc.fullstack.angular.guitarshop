@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Configuration;
 using poc.fullstack.angular.guitarshop.api.Data;
+using poc.fullstack.angular.guitarshop.api.Data.Seed;
 using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Middleware;
+using poc.fullstack.angular.guitarshop.api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
@@ -25,6 +27,8 @@ builder.Services.AddRedisConfiguration(builder.Configuration);
 // Identity
 builder.Services.AddIdentityConfiguration();
 
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 var app = builder.Build();
 
 
@@ -44,7 +48,8 @@ if (app.Environment.IsDevelopment())
     try
     {
         context.Database.Migrate();
-        DbInitializer.Initialize(context);
+        DbInitializer.InitializeProduct(context);
+        DbInitializer.InitializeDelivery(context);
     }
     catch (Exception ex)
     {

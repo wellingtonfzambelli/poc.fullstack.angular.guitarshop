@@ -44,8 +44,8 @@ public sealed class ProductController : ControllerBase
                 productParamsDto.PageSize,
                 ct
             );
-        
-        return new ProductPaginationParamsResponseDto 
+
+        return new ProductPaginationParamsResponseDto
         {
             CurrentPage = products.PaginationMetaDataDto.CurrentPage,
             PageSize = products.PaginationMetaDataDto.PageSize,
@@ -73,7 +73,7 @@ public sealed class ProductController : ControllerBase
     [HttpGet("brands")]
     public async Task<IActionResult> GetBrandsAsync(CancellationToken ct) =>
         Ok(await _context.Products.Select(s => s.Brand).Distinct().Take(8).ToListAsync(ct));
-        
+
 
     [HttpGet("types")]
     public async Task<IActionResult> GetTypesAsync(CancellationToken ct) =>
