@@ -34,7 +34,6 @@ export class CartItemComponent {
   }
 
   public removeItemFromCart() {
-    alert('ok')
     this.cartService.removeItemFromCart(this.item().productId, this.item().quantity);
   }
 }

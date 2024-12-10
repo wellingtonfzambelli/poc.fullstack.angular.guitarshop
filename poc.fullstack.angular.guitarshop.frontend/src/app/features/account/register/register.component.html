@@ -1,1 +1,55 @@
-<p>register works!</p>
+<mat-card class="max-w-lg mx-auto mt-32 p-8 bg-white">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-semibold text-primary">Register</h1>
+        </div>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Name</mat-label>
+            <input formControlName="firstName" type="text" placeholder="your name" matInput />
+            @if (registerForm.get('firstName')?.hasError('required')) {
+                <mat-error>Display name is required</mat-error>
+            }
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Last name</mat-label>
+            <input formControlName="lastName" type="text" placeholder="your lastname" matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>E-mail address</mat-label>
+            <input formControlName="email" type="email" placeholder="name@example.com" matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Passsword</mat-label>
+            <input formControlName="password" type="password" placeholder="password" matInput />
+        </mat-form-field>
+
+        @if(validationErrors){
+            <div class="mb-3 p-4 bg-red-100 tet-red-600">
+                <ul class="list-disc px-3">
+                    @for(error of validationErrors; track $index){
+                        <li>{{error}}</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <button 
+            [disabled]="registerForm.invalid"
+            mat-flat-button 
+            type="submit" 
+            class="w-full py-2"
+        >
+            Register
+        </button>
+    </form>
+</mat-card>
+
+<mat-card class="max-w-lg mx-auto mt-3 p-2">
+    <pre>Form values: {{registerForm.value | json}}</pre>
+    <pre>Form values: {{registerForm.status}}</pre>
+</mat-card>

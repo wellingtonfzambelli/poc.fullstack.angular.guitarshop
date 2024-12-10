@@ -64,7 +64,7 @@ public class AccountController : ControllerBase
         });
     }
 
-    [HttpGet("auth-state")]
+    [HttpGet("auth-status")]
     public async Task<ActionResult> GetAuthStateAsync(CancellationToken ct) =>
         Ok(new { isAuthenticated = User.Identity?.IsAuthenticated ?? false });
 

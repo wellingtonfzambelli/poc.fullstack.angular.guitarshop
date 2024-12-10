@@ -26,7 +26,7 @@
         </div>
 
         <div class="flex flex-col gap-2">
-            <button routerLink="/checkout" mat-flat-button>Checkout</button>
+            <button routerLink="/checkout" mat-flat-button [disabled]="!cartService.cart()">Checkout</button>
             <button routerLink="/catalog" mat-flat-button>Continue Shopping</button>
         </div>
     </div>
