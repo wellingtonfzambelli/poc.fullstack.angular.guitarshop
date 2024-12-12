@@ -3,19 +3,45 @@
         <mat-stepper #stepper class="bg-white border border-gray-200 shadow-sm">
             
             <mat-step label="Address">
-                Address form
+                <div id="address-element"></div>
+
+                <div class="flex justify-end mt-1">
+                    <mat-checkbox
+                        [checked]="saveAddress"
+                        (change)="onSaveAddressCheckboxChange($event)"
+                    >
+                        Save as default address
+                    </mat-checkbox>
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <button routerLink="/catalog" mat-stroked-button>Continue shopping</button>
+                    <button matStepperNext mat-flat-button>Next</button>
+                </div>
             </mat-step>
 
             <mat-step label="Shipping">
-                Delivery form
+                <app-checkout-delivery></app-checkout-delivery>
+                <div class="flex justify-between mt-6">
+                    <button matStepperPrevious mat-stroked-button>Continue shopping</button>
+                    <button matStepperNext mat-flat-button>Next</button>
+                </div>
             </mat-step>
 
             <mat-step label="Payment">
-                Payment form
+                <div id="payment-element"></div>
+                <div class="flex justify-between mt-6">
+                    <button matStepperPrevious mat-stroked-button>Back</button>
+                    <button matStepperNext mat-flat-button>Next</button>
+                </div>
             </mat-step>
 
             <mat-step label="Confirmation">
-                Review form
+                <app-checkout-review></app-checkout-review>
+                <div class="flex justify-between mt-6">
+                    <button matStepperPrevious mat-stroked-button>Back</button>
+                    <button mat-flat-button>Pay {{cartService.getTotals()?.total | currency}}</button>
+                </div>
             </mat-step>
 
         </mat-stepper>

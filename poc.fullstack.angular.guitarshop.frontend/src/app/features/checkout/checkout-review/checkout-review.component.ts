@@ -1,0 +1,18 @@
+import { Component, inject } from '@angular/core';
+import { CartService } from '../../../core/services/cart.service';
+import { CurrencyPipe } from '@angular/common';
+import { environment } from '../../../../environments/environment';
+
+@Component({
+  selector: 'app-checkout-review',
+  imports: [
+    CurrencyPipe
+  ],
+  templateUrl: './checkout-review.component.html',
+  styleUrl: './checkout-review.component.scss'
+})
+
+export class CheckoutReviewComponent {
+  public cartService = inject(CartService);
+  public productImagePath = environment.imageProductPath;  
+}
