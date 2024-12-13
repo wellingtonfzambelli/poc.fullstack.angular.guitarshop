@@ -1,15 +1,17 @@
-import { Component, inject, Input, ɵINPUT_SIGNAL_BRAND_WRITE_TYPE } from '@angular/core';
-import { CartService } from '../../../core/services/cart.service';
 import { CurrencyPipe } from '@angular/common';
-import { environment } from '../../../../environments/environment';
+import { Component, inject, Input } from '@angular/core';
 import { ConfirmationToken } from '@stripe/stripe-js';
+import { environment } from '../../../../environments/environment';
+import { CartService } from '../../../core/services/cart.service';
 import { AddressPipe } from '../../../shared/pipes/address.pipe';
+import { PaymentPipe } from '../../../shared/pipes/payment.pipe';
 
 @Component({
   selector: 'app-checkout-review',
   imports: [
     CurrencyPipe,
-    AddressPipe
+    AddressPipe,
+    PaymentPipe
   ],
   templateUrl: './checkout-review.component.html',
   styleUrl: './checkout-review.component.scss'

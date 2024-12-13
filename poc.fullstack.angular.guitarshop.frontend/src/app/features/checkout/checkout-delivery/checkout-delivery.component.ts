@@ -1,8 +1,8 @@
-import { Component, inject, OnInit, output } from '@angular/core';
-import { CheckoutService } from '../../../core/services/checkout.service';
-import { MatRadioModule } from '@angular/material/radio';
 import { CurrencyPipe } from '@angular/common';
+import { Component, inject, OnInit, output } from '@angular/core';
+import { MatRadioModule } from '@angular/material/radio';
 import { CartService } from '../../../core/services/cart.service';
+import { CheckoutService } from '../../../core/services/checkout.service';
 import { DeliveryMethod } from '../../../shared/models/DeliveryMethod';
 
 @Component({
@@ -23,8 +23,8 @@ export class CheckoutDeliveryComponent implements OnInit {
   ngOnInit(): void {
     this.checkoutService.getDeliveryMethods().subscribe({
       next: methods => {
-        if(this.cartService.cart()?.deliveryMethodId){
-          const method = methods.find(x => x.id === this.cartService.cart()?.deliveryMethodId);
+        if(this.cartService.cartSignal()?.deliveryMethodId){
+          const method = methods.find(x => x.id === this.cartService.cartSignal()?.deliveryMethodId);
 
           if(method) {
             this.cartService.selectedDelivery.set(method);
@@ -38,7 +38,7 @@ export class CheckoutDeliveryComponent implements OnInit {
   public updateDeliveryMethod(method: DeliveryMethod){
     this.cartService.selectedDelivery.set(method);
     
-    const cart = this.cartService.cart();
+    const cart = this.cartService.cartSignal();
 
     if(cart) {
       cart.deliveryMethodId == method.id;

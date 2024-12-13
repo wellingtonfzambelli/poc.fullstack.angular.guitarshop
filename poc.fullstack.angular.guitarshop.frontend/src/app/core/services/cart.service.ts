@@ -1,10 +1,10 @@
-import { computed, inject, Injectable, signal } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { computed, inject, Injectable, signal } from '@angular/core';
+import { map } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { Cart, CartItem } from '../../shared/models/Cart';
-import { Product } from '../../shared/models/Product';
-import { map, reduce } from 'rxjs';
 import { DeliveryMethod } from '../../shared/models/DeliveryMethod';
+import { Product } from '../../shared/models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -14,15 +14,15 @@ export class CartService {
   private http = inject(HttpClient);
 
   public baseUrl = environment.baseUrlGuitarshop;
-  public cart = signal<Cart | null>(null);
+  public cartSignal = signal<Cart | null>(null);
   public selectedDelivery = signal<DeliveryMethod | null>(null);
   
   public getItemCount = computed(() => {
-    return this.cart()?.items.reduce((sum, item) => sum + item.quantity, 0);
+    return this.cartSignal()?.items.reduce((sum, item) => sum + item.quantity, 0);
   })
 
   public getTotals = computed(() => {
-    const cart = this.cart();
+    const cart = this.cartSignal();
     const delivery = this.selectedDelivery();
 
     if(!cart)
@@ -43,20 +43,20 @@ export class CartService {
   public getCart(id: string) {
     return this.http.get<Cart>(this.baseUrl + 'cart?id=' + id).pipe(
       map(cart => {
-        this.cart.set(cart);
-        return this.cart;
+        this.cartSignal.set(cart);
+        return this.cartSignal;
       })
     )
   }
   
   public setCart(cart: Cart) {
     return this.http.post<Cart>(this.baseUrl + 'cart', cart).subscribe({
-      next: cart => this.cart.set(cart)
+      next: cart => this.cartSignal.set(cart)
     })
   }
 
   public addItemtoCart(item: CartItem | Product, quantity = 1) {
-    const cart = this.cart() ?? this.createCart();
+    const cart = this.cartSignal() ?? this.createCart();
     
     if(this.isProduct(item)){
       item = this.mapProductToCartItem(item);
@@ -67,7 +67,7 @@ export class CartService {
   }
 
   public removeItemFromCart(productId: string, quantity = 1) {
-    const cart = this.cart();
+    const cart = this.cartSignal();
     
     if(!cart)
       return;
@@ -89,10 +89,10 @@ export class CartService {
   }
 
   public deleteCart() {
-    this.http.delete(this.baseUrl + 'cart?id=' + this.cart()?.id).subscribe({
+    this.http.delete(this.baseUrl + 'cart?id=' + this.cartSignal()?.id).subscribe({
       next: () =>{
         localStorage.removeItem('cart_id');
-        this.cart.set(null);
+        this.cartSignal.set(null);
       }
     })
   }
