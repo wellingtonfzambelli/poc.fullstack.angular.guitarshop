@@ -28,7 +28,7 @@ public sealed class PaymentService : IPaymentService
         if (cart is null)
             return null;
 
-        var shippingPrice = 0m;
+        var shippingPrice = 0d;
 
         if (cart.DeliveryMethodId.HasValue)
         {

@@ -9,6 +9,8 @@ import { CheckoutSuccessComponent } from './features/checkout/checkout-success/c
 import { CheckoutComponent } from './features/checkout/checkout.component';
 import { ContactComponent } from './features/contact/contact.component';
 import { HomeComponent } from './features/home/home.component';
+import { OrderDetailedComponent } from './features/orders/order-detailed/order-detailed.component';
+import { OrderComponent } from './features/orders/order/order.component';
 import { TestErrorComponent } from './features/test-error/test-error.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
@@ -19,7 +21,9 @@ export const routes: Routes = [
     { path: 'catalog/:id', component: ProductDetailsComponent },
     { path: 'cart', component: CartComponent },
     { path: 'checkout', component: CheckoutComponent, canActivate:[authGuard] },
-    { path: 'checkout/success', component: CheckoutSuccessComponent, canActivate:[authGuard]},
+    { path: 'checkout/success', component: CheckoutSuccessComponent, canActivate:[authGuard] },
+    { path: 'orders', component: OrderComponent, canActivate: [authGuard] },
+    { path: 'orders/:id', component: OrderDetailedComponent, canActivate: [authGuard] },
     { path: 'account/login', component: LoginComponent },
     { path: 'account/register', component: RegisterComponent },
     { path: 'contact', component: ContactComponent },

@@ -2,7 +2,7 @@
 
 namespace poc.fullstack.angular.guitarshop.api.Extensions;
 
-public static class ProductExtensions
+public static class ProductFilterExtensions
 {
     public static IQueryable<Product> Sort(
         this IQueryable<Product> query, string orderBy)

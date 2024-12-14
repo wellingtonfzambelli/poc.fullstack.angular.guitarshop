@@ -17,12 +17,12 @@ public sealed class CartController(ICartServices _cartService) : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ShoppingCart>> UpdateCartAsync([FromBody]ShoppingCart cart, CancellationToken ct)
+    public async Task<ActionResult<ShoppingCart>> UpdateCartAsync([FromBody] ShoppingCart cart, CancellationToken ct)
     {
         var updatedCart = await _cartService.SetCartAsync(cart);
 
         if (updatedCart is null)
-            return BadRequest("Probelm with cart");
+            return BadRequest("Problem with cart");
 
         return updatedCart;
     }

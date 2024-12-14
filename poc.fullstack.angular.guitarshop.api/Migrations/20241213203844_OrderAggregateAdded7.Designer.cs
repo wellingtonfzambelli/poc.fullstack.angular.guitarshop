@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using poc.fullstack.angular.guitarshop.api.Data;
 
@@ -11,9 +12,11 @@ using poc.fullstack.angular.guitarshop.api.Data;
 namespace poc.fullstack.angular.guitarshop.api.Migrations
 {
     [DbContext(typeof(GuitarShopContext))]
-    partial class GuitarShopContextModelSnapshot : ModelSnapshot
+    [Migration("20241213203844_OrderAggregateAdded7")]
+    partial class OrderAggregateAdded7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -203,8 +206,8 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("double");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
@@ -268,7 +271,7 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.Product", b =>
@@ -458,10 +461,10 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                             b1.Property<int>("ExpMonth")
                                 .HasColumnType("int");
 
-                            b1.Property<int>("ExpYear")
+                            b1.Property<int>("Last4")
                                 .HasColumnType("int");
 
-                            b1.Property<int>("Last4")
+                            b1.Property<int>("Year")
                                 .HasColumnType("int");
 
                             b1.HasKey("OrderId");
@@ -537,8 +540,8 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                                 .IsRequired()
                                 .HasColumnType("longtext");
 
-                            b1.Property<Guid>("ProductId")
-                                .HasColumnType("char(36)");
+                            b1.Property<int>("ProductId")
+                                .HasColumnType("int");
 
                             b1.Property<string>("ProductName")
                                 .IsRequired()
@@ -546,7 +549,7 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
 
                             b1.HasKey("OrderItemId");
 
-                            b1.ToTable("OrderItems");
+                            b1.ToTable("OrderItem");
 
                             b1.WithOwner()
                                 .HasForeignKey("OrderItemId");

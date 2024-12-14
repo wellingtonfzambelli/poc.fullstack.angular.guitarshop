@@ -14,6 +14,5 @@ public sealed class DeliveryMethod : BaseEntity
     [Required]
     public string Description { get; set; }
 
-
-    public decimal Price { get; set; }
+    public double Price { get; set; }
 }
