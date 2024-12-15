@@ -1,5 +1,5 @@
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
-import { CurrencyPipe, JsonPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import {
@@ -40,7 +40,6 @@ import { CheckoutReviewComponent } from './checkout-review/checkout-review.compo
     CheckoutDeliveryComponent,
     CheckoutReviewComponent,
     CurrencyPipe,
-    JsonPipe,
     MatProgressSpinnerModule,
   ],
   templateUrl: './checkout.component.html',
@@ -85,8 +84,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   public async confirmPayment(stepper: MatStepper) {
     this.loading = true;
+    
     try {
       if (this.confirmationToken) {
+
         const result = await this.stripeService.confirmPayment(
           this.confirmationToken
         );
@@ -175,10 +176,14 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onSaveAddressCheckboxChange(event: MatCheckboxChange) {
+    this.saveAddress = event.checked;
+  }
+
   private async createOrderModel(): Promise<OrderToCreate> {
+    debugger
     const cart = this.cartService.cartSignal();
-    const shippingAddress =
-      (await this.getAddressFromStripeAddress()) as ShippingAddress;
+    const shippingAddress = (await this.getAddressFromStripeAddress()) as ShippingAddress;
     const card = this.confirmationToken?.payment_method_preview.card;
 
     if (!cart?.id || !cart.deliveryMethodId || !card || !shippingAddress) {
@@ -200,13 +205,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     return order;
   }
 
-  private async getAddressFromStripeAddress(): Promise<Address | null> {
+  private async getAddressFromStripeAddress(): Promise<Address | ShippingAddress | null> {
     const result = await this.addressElement?.getValue();
     const address = result?.value.address;
 
     if (address) {
       return {
-        //name: result.value.name,
+        name: result.value.name,
         line1: address.line1,
         line2: address.line2 || undefined,
         city: address.city,
@@ -217,10 +222,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     } else {
       return null;
     }
-  }
-
-  public onSaveAddressCheckboxChange(event: MatCheckboxChange) {
-    this.saveAddress = event.checked;
   }
 
   ngOnDestroy(): void {

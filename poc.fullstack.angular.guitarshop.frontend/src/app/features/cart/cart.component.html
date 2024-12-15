@@ -1,8 +1,8 @@
 <section>
-    @if(cartService.cart()?.items?.length! > 0){
+    @if(cartService.cartSignal()?.items?.length! > 0){
         <div class="flex w-full items-start gap-6 mt-32">
             <div class="w-3/4">
-                @for(item of cartService.cart()?.items; track item.productId) {
+                @for(item of cartService.cartSignal()?.items; track item.productId) {
                     <app-cart-item [item]="item"></app-cart-item>
                 }
             </div>
