@@ -12,8 +12,8 @@ using poc.fullstack.angular.guitarshop.api.Data;
 namespace poc.fullstack.angular.guitarshop.api.Migrations
 {
     [DbContext(typeof(GuitarShopContext))]
-    [Migration("20241210022651_added4")]
-    partial class added4
+    [Migration("20241215155915_guitarshop1")]
+    partial class guitarshop1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -194,9 +194,11 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
 
             modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.DeliveryMethod", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DeliveryTime")
                         .IsRequired()
@@ -206,8 +208,8 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(65,30)");
+                    b.Property<double>("Price")
+                        .HasColumnType("double");
 
                     b.Property<string>("ShortName")
                         .IsRequired()
@@ -216,6 +218,62 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("DeliveryMethods");
+                });
+
+            modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.Order", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("BuyerEmail")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("DeliveryMethodId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("PaymentIntentId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DeliveryMethodId");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.OrderItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("OrderId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItems");
                 });
 
             modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.Product", b =>
@@ -385,6 +443,124 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.Order", b =>
+                {
+                    b.HasOne("poc.fullstack.angular.guitarshop.api.Entities.DeliveryMethod", "DeliveryMethod")
+                        .WithMany()
+                        .HasForeignKey("DeliveryMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.OwnsOne("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.PaymentSummary", "PaymentSummary", b1 =>
+                        {
+                            b1.Property<Guid>("OrderId")
+                                .HasColumnType("char(36)");
+
+                            b1.Property<string>("Brand")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<int>("ExpMonth")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("ExpYear")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("Last4")
+                                .HasColumnType("int");
+
+                            b1.HasKey("OrderId");
+
+                            b1.ToTable("Orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderId");
+                        });
+
+                    b.OwnsOne("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.ShippingAddress", "ShippingAddress", b1 =>
+                        {
+                            b1.Property<Guid>("OrderId")
+                                .HasColumnType("char(36)");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("Line1")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("Line2")
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("Name")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<string>("State")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("OrderId");
+
+                            b1.ToTable("Orders");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderId");
+                        });
+
+                    b.Navigation("DeliveryMethod");
+
+                    b.Navigation("PaymentSummary")
+                        .IsRequired();
+
+                    b.Navigation("ShippingAddress")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.OrderItem", b =>
+                {
+                    b.HasOne("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.Order", null)
+                        .WithMany("OrderItems")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.OwnsOne("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.ProductItemOrdered", "ItemOrdered", b1 =>
+                        {
+                            b1.Property<Guid>("OrderItemId")
+                                .HasColumnType("char(36)");
+
+                            b1.Property<string>("PictureUrl")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.Property<Guid>("ProductId")
+                                .HasColumnType("char(36)");
+
+                            b1.Property<string>("ProductName")
+                                .IsRequired()
+                                .HasColumnType("longtext");
+
+                            b1.HasKey("OrderItemId");
+
+                            b1.ToTable("OrderItems");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrderItemId");
+                        });
+
+                    b.Navigation("ItemOrdered")
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.UserAppIdentity", b =>
                 {
                     b.HasOne("poc.fullstack.angular.guitarshop.api.Entities.Address", "Address")
@@ -392,6 +568,11 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                         .HasForeignKey("AddressId");
 
                     b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate.Order", b =>
+                {
+                    b.Navigation("OrderItems");
                 });
 #pragma warning restore 612, 618
         }

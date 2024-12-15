@@ -1,10 +1,12 @@
-﻿using poc.fullstack.angular.guitarshop.api.Entities.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace poc.fullstack.angular.guitarshop.api.Entities;
 
-public sealed class DeliveryMethod : BaseEntity
+public sealed class DeliveryMethod
 {
+    [Key]
+    public int Id { get; set; }
+
     [Required]
     public string ShortName { get; set; }
 

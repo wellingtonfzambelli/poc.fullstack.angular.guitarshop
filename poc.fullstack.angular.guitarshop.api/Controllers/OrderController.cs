@@ -7,12 +7,15 @@ using poc.fullstack.angular.guitarshop.api.Extensions;
 using poc.fullstack.angular.guitarshop.api.Services.Redis;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
-public sealed class OrderController : Controller
+
+[ApiController]
+[Route("api/v1/order")]
+public sealed class OrderController : ControllerBase
 {
-    private readonly CartServices _cartService;
+    private readonly ICartService _cartService;
     private readonly GuitarShopContext _guitarShopContext;
 
-    public OrderController(CartServices cartService, GuitarShopContext guitarShopContext)
+    public OrderController(ICartService cartService, GuitarShopContext guitarShopContext)
     {
         _cartService = cartService;
         _guitarShopContext = guitarShopContext;
@@ -71,7 +74,16 @@ public sealed class OrderController : Controller
             BuyerEmail = email
         };
 
-        _guitarShopContext.Orders.Add(order);
+        try
+        {
+            _guitarShopContext.Orders.Add(order);
+
+            _guitarShopContext.SaveChanges();
+        }
+        catch (Exception ex) 
+        { 
+        
+        }
 
         return order;
     }

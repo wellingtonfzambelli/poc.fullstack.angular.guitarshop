@@ -5,6 +5,7 @@ using poc.fullstack.angular.guitarshop.api.Data.Seed;
 using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Middleware;
 using poc.fullstack.angular.guitarshop.api.Services;
+using poc.fullstack.angular.guitarshop.api.Services.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
@@ -27,7 +28,9 @@ builder.Services.AddRedisConfiguration(builder.Configuration);
 // Identity
 builder.Services.AddIdentityConfiguration();
 
+// Services
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<ICartService, CartService>();
 
 var app = builder.Build();
 

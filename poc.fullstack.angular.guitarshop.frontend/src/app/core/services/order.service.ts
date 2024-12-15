@@ -13,14 +13,14 @@ export class OrderService {
   private http = inject(HttpClient);
 
   public createOrder(orderToCreate: OrderToCreate) {
-    return this.http.post<Order>(this.baseUrl + 'orders', orderToCreate);
+    return this.http.post<Order>(this.baseUrl + 'order', orderToCreate);
   }
 
   public getOrdersForUser() {
-    return this.http.get<Order>(this.baseUrl + 'orders');
+    return this.http.get<Order>(this.baseUrl + 'order');
   }
 
   public getOrderDetailed(id: number) {
-    return this.http.get<Order>(this.baseUrl + 'orders/' + id);
+    return this.http.get<Order>(this.baseUrl + 'order/' + id);
   }
 }

@@ -9,10 +9,10 @@ namespace poc.fullstack.angular.guitarshop.api.Services;
 public sealed class PaymentService : IPaymentService
 {
     private readonly IConfiguration _configuration;
-    private readonly ICartServices _cartServices;
+    private readonly ICartService _cartServices;
     private readonly GuitarShopContext _context;
 
-    public PaymentService(IConfiguration configuration, ICartServices cartServices, GuitarShopContext context)
+    public PaymentService(IConfiguration configuration, ICartService cartServices, GuitarShopContext context)
     {
         _configuration = configuration;
         _cartServices = cartServices;

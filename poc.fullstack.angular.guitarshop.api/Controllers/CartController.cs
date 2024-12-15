@@ -6,7 +6,7 @@ namespace poc.fullstack.angular.guitarshop.api.Controllers;
 
 [ApiController]
 [Route("api/v1/cart")]
-public sealed class CartController(ICartServices _cartService) : ControllerBase
+public sealed class CartController(ICartService _cartService) : ControllerBase
 {
     [HttpGet]
     public async Task<ActionResult<ShoppingCart>> GetCartByIdAsync(string id, CancellationToken cancellationToken)

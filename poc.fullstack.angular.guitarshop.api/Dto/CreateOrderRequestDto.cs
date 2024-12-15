@@ -8,7 +8,7 @@ public sealed class CreateOrderRequestDto
     [Required]
     public string CartId { get; set; } = string.Empty;
 
-    public Guid DeliveryMethodId { get; set; }
+    public int DeliveryMethodId { get; set; }
 
     public ShippingAddress ShippingAddress { get; set; }
 

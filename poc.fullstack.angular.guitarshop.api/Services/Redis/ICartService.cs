@@ -2,7 +2,7 @@
 
 namespace poc.fullstack.angular.guitarshop.api.Services.Redis;
 
-public interface ICartServices
+public interface ICartService
 {
     Task<ShoppingCart> GetCartAsync(string key);
     Task<ShoppingCart?> SetCartAsync(ShoppingCart cart);

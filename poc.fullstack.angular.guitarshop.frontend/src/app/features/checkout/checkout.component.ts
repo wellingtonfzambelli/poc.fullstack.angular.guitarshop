@@ -91,7 +91,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         const result = await this.stripeService.confirmPayment(
           this.confirmationToken
         );
-
+debugger
         if (result.paymentIntent?.status === 'succeeded') {
           const order = await this.createOrderModel();
           const orderResult = await firstValueFrom(
@@ -181,7 +181,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   }
 
   private async createOrderModel(): Promise<OrderToCreate> {
-    debugger
+    
     const cart = this.cartService.cartSignal();
     const shippingAddress = (await this.getAddressFromStripeAddress()) as ShippingAddress;
     const card = this.confirmationToken?.payment_method_preview.card;

@@ -191,9 +191,11 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
 
             modelBuilder.Entity("poc.fullstack.angular.guitarshop.api.Entities.DeliveryMethod", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DeliveryTime")
                         .IsRequired()
@@ -225,8 +227,8 @@ namespace poc.fullstack.angular.guitarshop.api.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<Guid>("DeliveryMethodId")
-                        .HasColumnType("char(36)");
+                    b.Property<int>("DeliveryMethodId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime(6)");

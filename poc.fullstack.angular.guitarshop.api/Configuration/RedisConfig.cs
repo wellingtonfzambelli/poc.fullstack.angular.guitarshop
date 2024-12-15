@@ -1,5 +1,4 @@
-﻿using poc.fullstack.angular.guitarshop.api.Services.Redis;
-using StackExchange.Redis;
+﻿using StackExchange.Redis;
 
 namespace poc.fullstack.angular.guitarshop.api.Configuration;
 
@@ -22,7 +21,5 @@ public static class RedisConfig
             var configurationOptions = ConfigurationOptions.Parse(connectionString, true);
             return ConnectionMultiplexer.Connect(configurationOptions);
         });
-
-        services.AddSingleton<ICartServices, CartServices>();
     }
 }

@@ -6,6 +6,7 @@
             #stepper 
             class="bg-white border border-gray-200 shadow-sm">
             
+            <!-- ADDRESS -->
             <mat-step label="Address" [completed]="signalCompletionSteps().address">
                 <div id="address-element"></div>
 
@@ -24,6 +25,7 @@
                 </div>
             </mat-step>
 
+            <!-- SHIPPING -->
             <mat-step label="Shipping" [completed]="signalCompletionSteps().delivery">
                 <app-checkout-delivery (deliveryComplete)="handleDeliveryChange($event)"></app-checkout-delivery>
                 
@@ -33,6 +35,7 @@
                 </div>
             </mat-step>
 
+            <!-- CREDIT CARD -->
             <mat-step label="Payment" [completed]="signalCompletionSteps().card">
                 <span>Use the card number 4242 4242 4242 4242 to test!</span>
 
@@ -44,6 +47,7 @@
                 </div>
             </mat-step>
 
+            <!-- CONFIRMATION -->
             <mat-step label="Confirmation">
                 <app-checkout-review [confirmationToken]="confirmationToken"></app-checkout-review>
                 

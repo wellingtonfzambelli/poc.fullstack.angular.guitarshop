@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace poc.fullstack.angular.guitarshop.api.Services.Redis;
 
-public sealed class CartServices(IConnectionMultiplexer redis) : ICartServices
+public sealed class CartService(IConnectionMultiplexer redis) : ICartService
 {
     private readonly IDatabase _database = redis.GetDatabase();
 
