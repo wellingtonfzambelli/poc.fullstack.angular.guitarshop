@@ -78,7 +78,12 @@ module.exports = {
 @tailwind utilities;
 ```
 
-5 - Executes the command bellow to run the application  
+5 - Add signalR   
+```VS Code terminal
+npm install @microsoft/signalr
+```
+
+6 - Executes the command bellow to run the application  
 ```VS Code terminal
 ng serve
 ```
