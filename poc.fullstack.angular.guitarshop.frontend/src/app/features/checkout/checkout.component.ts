@@ -93,8 +93,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         );
 debugger
         if (result.paymentIntent?.status === 'succeeded') {
-          const order = await this.createOrderModel();
-          const orderResult = await firstValueFrom(
+          const order = await this.createOrderModel(result.paymentIntent?.id);
+          
+          const orderResult = await firstValueFrom(            
             this.orderService.createOrder(order)
           );
 
@@ -180,7 +181,7 @@ debugger
     this.saveAddress = event.checked;
   }
 
-  private async createOrderModel(): Promise<OrderToCreate> {
+  private async createOrderModel(intentId: string): Promise<OrderToCreate> {
     
     const cart = this.cartService.cartSignal();
     const shippingAddress = (await this.getAddressFromStripeAddress()) as ShippingAddress;
@@ -198,8 +199,9 @@ debugger
         expMonth: card.exp_month,
         expYear: card.exp_year,
       },
+      paymentIntentId: intentId,
       deliveryMethodId: cart.deliveryMethodId,
-      shippingAddress,
+      shippingAddress
     };
 
     return order;

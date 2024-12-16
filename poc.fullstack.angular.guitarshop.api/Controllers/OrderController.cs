@@ -71,19 +71,13 @@ public sealed class OrderController : ControllerBase
             ShippingAddress = request.ShippingAddress,
             Subtotal = items.Sum(x => x.Price * x.Quantity),
             PaymentSummary = request.PaymentSummary,
-            BuyerEmail = email
+            BuyerEmail = email,
+            PaymentIntentId = request.PaymentIntentId
         };
 
-        try
-        {
-            _guitarShopContext.Orders.Add(order);
+        await _guitarShopContext.Orders.AddAsync(order, ct);
 
-            _guitarShopContext.SaveChanges();
-        }
-        catch (Exception ex) 
-        { 
-        
-        }
+        await _guitarShopContext.SaveChangesAsync(ct);
 
         return order;
     }
@@ -95,6 +89,8 @@ public sealed class OrderController : ControllerBase
 
         var orders = await _guitarShopContext
             .Orders
+            .Include(x => x.OrderItems)
+            .Include(x => x.DeliveryMethod)
             .Where(s => s.BuyerEmail == email)
             .OrderByDescending(s => s.OrderDate)
             .ToListAsync(ct);

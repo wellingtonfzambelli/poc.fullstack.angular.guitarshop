@@ -43,4 +43,5 @@ export interface OrderToCreate {
     deliveryMethodId: number
     shippingAddress: ShippingAddress
     paymentSummary: PaymentSummary
+    paymentIntentId: string
 }

@@ -13,4 +13,6 @@ public sealed class CreateOrderRequestDto
     public ShippingAddress ShippingAddress { get; set; }
 
     public PaymentSummary PaymentSummary { get; set; }
+
+    public string PaymentIntentId { get; set; }
 }
