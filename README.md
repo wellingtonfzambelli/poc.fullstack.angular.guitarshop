@@ -84,6 +84,11 @@ npm install @microsoft/signalr
 ```
 
 6 - Executes the command bellow to run the application  
+
+```VS Code terminal
+stripe listen --forward-to https://localhost:6001/api/v1/payment/webhook -e payment_intent.succeeded
+```
+
 ```VS Code terminal
 ng serve
 ```
