@@ -91,7 +91,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         const result = await this.stripeService.confirmPayment(
           this.confirmationToken
         );
-debugger
+
         if (result.paymentIntent?.status === 'succeeded') {
           const order = await this.createOrderModel(result.paymentIntent?.id);
           

@@ -32,6 +32,7 @@ builder.Services.AddIdentityConfiguration();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ICartService, CartService>();
 
+
 var app = builder.Build();
 
 
