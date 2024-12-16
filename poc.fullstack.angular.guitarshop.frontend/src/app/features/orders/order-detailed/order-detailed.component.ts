@@ -2,10 +2,12 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { environment } from '../../../../environments/environment';
 import { OrderService } from '../../../core/services/order.service';
 import { Order } from '../../../shared/models/Order';
+import { AddressPipe } from "../../../shared/pipes/address.pipe";
+import { PaymentPipe } from "../../../shared/pipes/payment.pipe";
 
 @Component({
   selector: 'app-order-detailed',
@@ -13,8 +15,11 @@ import { Order } from '../../../shared/models/Order';
     MatCardModule,
     MatButton,
     DatePipe,
-    CurrencyPipe
-  ],
+    CurrencyPipe,
+    AddressPipe,
+    PaymentPipe,
+    RouterLink
+],
   templateUrl: './order-detailed.component.html',
   styleUrl: './order-detailed.component.scss'
 })
