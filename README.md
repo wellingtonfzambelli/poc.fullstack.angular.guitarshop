@@ -98,7 +98,12 @@ cd C:\Users\Wellington\Downloads\stripe_1.22.0_windows_x86_64
 stripe.exe
 ```
 
-4 - It will appears a endpoint to access and authorize such as "https://dashboard.stripe.com/stripecli/confirm_auth?t=6DLIJiUX8lakQdxKRXcoVH5La191HoNt"
+4 - Exec the login command
+```CMD
+stripe login
+```   
+It will appears a endpoint to access and authorize such as   
+"https://dashboard.stripe.com/stripecli/confirm_auth?t=6DLIJiUX8lakQdxKRXcoVH5La191HoNt"
 
 4 - After the authorization you need to run the command following the documentation above   
 
