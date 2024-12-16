@@ -112,6 +112,7 @@ https://docs.stripe.com/webhooks/quickstart?lang=dotnet
 ```CMD
 stripe listen --forward-to https://localhost:6001/api/v1/payment/webhook -e payment_intent.succeeded
 ```
+It return the "whsec_". Copy it and add in your appsettings.json
 
 # Installing Browser Certificate
 Angular works better with a broser certificate. Because of that we need to generate a free localhost certificate
