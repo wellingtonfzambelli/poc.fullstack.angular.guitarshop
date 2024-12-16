@@ -5,6 +5,7 @@ import { environment } from '../../../environments/environment';
 import { Cart, CartItem } from '../../shared/models/Cart';
 import { DeliveryMethod } from '../../shared/models/DeliveryMethod';
 import { Product } from '../../shared/models/Product';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { Product } from '../../shared/models/Product';
 export class CartService {
 
   private http = inject(HttpClient);
+  private snackbarService = inject(SnackbarService);
 
   public baseUrl = environment.baseUrlGuitarshop;
   public cartSignal = signal<Cart | null>(null);
@@ -86,6 +88,8 @@ export class CartService {
         this.setCart(cart);
       }
     }
+
+    this.snackbarService.success("Product removed from the cart");
   }
 
   public deleteCart() {
@@ -118,6 +122,8 @@ export class CartService {
     }else{
       items[index].quantity += quantity;
     }
+
+    this.snackbarService.success("Product added to the cart");
 
     return items;
   }

@@ -50,7 +50,9 @@ public sealed class PaymentController : ControllerBase
 
     [HttpPost("webhook")]
     public async Task<IActionResult> StripeWebhook()
-    { 
+    {
+        Thread.Sleep(1000);
+
         var json = await new StreamReader(Request.Body).ReadToEndAsync();
 
         try
@@ -96,16 +98,19 @@ public sealed class PaymentController : ControllerBase
             var order = await _guitarShopContext
                 .Orders
                 .Include(s => s.OrderItems)
-                .Include(S => S.DeliveryMethod)
+                .Include(s => s.DeliveryMethod)
                 .FirstOrDefaultAsync(s => s.PaymentIntentId == intent.Id);
 
             if (order is null)
                 throw new Exception("Order not found");
 
-            if ((long)order.GetTotal() * 100 != intent.Amount)
+            if (order.GetTotal() != (intent.Amount / 100.0))
                 order.Status = OrderStatus.PaymentMismatch;
             else
                 order.Status = OrderStatus.PaymentReceived;
+
+            _guitarShopContext.Update(order);
+            await _guitarShopContext.SaveChangesAsync();
         }
     }
 }

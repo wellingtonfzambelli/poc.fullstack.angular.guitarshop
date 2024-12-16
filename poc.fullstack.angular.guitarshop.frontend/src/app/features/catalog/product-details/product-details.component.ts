@@ -37,12 +37,12 @@ export class ProductDetailsComponent implements OnInit {
   public quantityInitial = 0;
   public productImagePath = environment.imageProductPath;  
 
-  constructor(
+  constructor
+  (
     private guitarShopService:CatalogService, 
     private activeRoute: ActivatedRoute,
-    public cartService: CartService) {
-
-  }
+    public cartService: CartService
+  ) { }
 
   ngOnInit(): void {
    this.loadProduct();
