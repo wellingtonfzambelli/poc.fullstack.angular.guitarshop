@@ -40,46 +40,8 @@ It'll run the SEED logic on the "Progran.cs" file for the initial data in the 'P
 ![image](https://github.com/user-attachments/assets/5a2fdebe-30b6-4d15-bab9-1c0dc71f2a4c)
 
 # Frontend - Setting up the application
-1 - Open the workspace "poc.fullstack.guitarshop.frontend" on the Visual Studio Code
 
-2 - Install the node.js
-
-3 - On the terminal execute the commands bellow
-
-```VS Code terminal
-npm install
-```
-
-```VS Code terminal
-node --version
-```
-
-```VS Code terminal
-npm --version
-```
-
-```VS Code terminal
-npm install -g @angular/cli
-```
-
-```VS Code terminal
-ng version
-```
-
-```VS Code terminal
-ng new client
-```
-
-Choose the options bellow during the angular installation <br>
-✔ Which stylesheet format would you like to use? Sass (SCSS) <br>
-✔ Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? no <br><br/>
-
-4 - After the installation, get in the new angular folder   
-```VS Code terminal
-cd poc.fullstack.angular.guitarshop.frontend
-```
-
-5 - Install the Angular Material to work with template components  
+1 - Install the Angular Material to work with template components  
 ```VS Code terminal
 ng add @angular/material
 ```
@@ -88,7 +50,7 @@ Choose the options bellow during the angular installation <br>
 ✔ Set up global Angular Material typography styles? no  
 ✔ Include the Angular animations module? Include and enable animations  
 
-6 - Install Tailwind CSS  
+2 - Install Tailwind CSS  
 ```VS Code terminal
 npm install -D tailwindcss postcss autoprefixer
 ```
@@ -96,7 +58,7 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init
 ```
  
-7 - It will generate the file "tailwind.config.js".  
+3 - It will generate the file "tailwind.config.js".  
 Open it and add the code bellow
 ```VS Code terminal
 /** @type {import('tailwindcss').Config} */
@@ -109,14 +71,14 @@ module.exports = {
 }
 ```  
 
-8 - Now open the styles.scss and add the code bellow as well  
+4 - Now open the styles.scss and add the code bellow as well  
 ```VS Code terminal
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
 
-9 - Executes the command bellow to run the application  
+5 - Executes the command bellow to run the application  
 ```VS Code terminal
 ng serve
 ```
