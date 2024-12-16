@@ -5,6 +5,7 @@
 __Backend__
 - .NET 8
 - Entity Framework Core (Migrations)
+- Identity Provider
 - MySQL
 - Web Api
 - Swagger
@@ -13,9 +14,9 @@ __Backend__
 
   
 __Frontend - Angular 18__
-- mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Angular Material - _(https://material.angular.io/)_
 - Tailwind CSS - _(https://tailwindcss.com/)_
+- mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
 # Backend - Setting up the application
