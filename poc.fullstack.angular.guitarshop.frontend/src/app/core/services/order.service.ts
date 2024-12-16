@@ -19,7 +19,7 @@ export class OrderService {
     return this.http.get<Order[]>(this.baseUrl + 'order');
   }
 
-  public getOrderDetailed(id: number) {
+  public getOrderDetailed(id: string) {
     return this.http.get<Order>(this.baseUrl + 'order/' + id);
   }
 }
