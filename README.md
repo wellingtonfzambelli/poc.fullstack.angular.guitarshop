@@ -83,6 +83,31 @@ module.exports = {
 ng serve
 ```
 
+# Frontend - Setting up  Stripe Webhook
+
+1 - Donwload the stripe windows zip file and extract it   
+https://docs.stripe.com/stripe-cli?install-method=windows
+
+2 - Open the windows CMD with the download path   
+```CMD
+cd C:\Users\Wellington\Downloads\stripe_1.22.0_windows_x86_64
+```
+
+3 - Exec the stripe.exe
+```CMD
+stripe.exe
+```
+
+4 - It will appears a endpoint to access and authorize such as "https://dashboard.stripe.com/stripecli/confirm_auth?t=6DLIJiUX8lakQdxKRXcoVH5La191HoNt"
+
+4 - After the authorization you need to run the command following the documentation above   
+
+https://docs.stripe.com/webhooks/quickstart?lang=dotnet
+
+```CMD
+stripe listen --forward-to https://localhost:6001/api/v1/payment/webhook -e payment_intent.succeeded
+```
+
 # Installing Browser Certificate
 Angular works better with a broser certificate. Because of that we need to generate a free localhost certificate
 
