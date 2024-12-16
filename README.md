@@ -16,7 +16,7 @@ __Backend__
 __Frontend - Angular 18__
 - Angular Material - _(https://material.angular.io/)_
 - Tailwind CSS - _(https://tailwindcss.com/)_
-- Stripe - Gateway Payment
+- Stripe - Payment Gateway
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
