@@ -248,3 +248,9 @@ public sealed class FallbackController : Controller
             "wwwroot", "index.html"), "text/HTML");
 }
 ```
+4 - On the Azure Server, creates a new resource group named "poc-angular-guitarshop-rg"
+![image](https://github.com/user-attachments/assets/47d64aeb-6a3d-4dbc-9570-49dcaee1e207)
+
+5 - On the Azure Server, creates a new "Web App"
+![image](https://github.com/user-attachments/assets/cc91cdc6-34a2-40b5-a428-aaf3aac9a169)
+
