@@ -62,9 +62,10 @@ __Frontend - Angular 18__
 </div>
 
 2 - For Gateway Payments, I'm using "Stripe" as developement account
-![image](https://github.com/user-attachments/assets/9c38809a-4cf9-4452-8050-51706311d21b)
-
-
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/9c38809a-4cf9-4452-8050-51706311d21b" width="40%">
+    <img src="https://github.com/user-attachments/assets/36a98c9f-ab7a-43f7-8dbb-d6292d89691e" width="40%">
+</div>
 
 # Frontend - Setting up the application
 
