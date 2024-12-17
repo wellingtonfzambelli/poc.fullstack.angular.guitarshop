@@ -49,6 +49,7 @@ __Frontend - Angular 18__
     <img src="screenshots/checkout-confirmation.jpg" width="30%">    
     <img src="screenshots/checkout-processing.jpg" width="30%">  
     <img src="screenshots/checkout-processed-success.jpg" width="30%">
+    <img src="screenshots/stripe-transaction.jpg" width="30%">
 </div>
 
 # Backend - Setting up the application
