@@ -27,6 +27,8 @@ __Frontend - Angular 18__
 
 # Screenshots
 <p align="center">
+  ![Descrição da imagem](https://raw.githubusercontent.com/seu-repositorio/imagens/image1.png)
+
   <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238.png" width="32%">
   <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" width="32%">
   <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" width="32%">
