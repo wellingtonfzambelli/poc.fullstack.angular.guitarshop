@@ -8,7 +8,8 @@ __Backend__
 - Identity Provider
 - MySQL
 - Redis - _(to store the cart)_
-- SingalR - _(to notify when the payment status changes)_
+- SingalR - _(to notify the frontend the payment status)_
+- Stripe Webhook - _(to notify when the payment status changes)_
 - REST Api
 - Swagger
 - Visual Studio Community 2022
