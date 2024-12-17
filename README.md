@@ -7,7 +7,8 @@ __Backend__
 - Entity Framework Core (Migrations)
 - Identity Provider
 - MySQL
-- Web Api
+- Redis - to store the cart
+- REST Api
 - Swagger
 - Visual Studio Community 2022
 - Google Chrome (using React DevTools) - main browser
