@@ -256,3 +256,5 @@ public sealed class FallbackController : Controller
 5 - On the Azure Server, creates a new "Web App"
 ![image](https://github.com/user-attachments/assets/cc91cdc6-34a2-40b5-a428-aaf3aac9a169)
 
+6 - On the Azure Server, add the "Environment Variables"
+![image](https://github.com/user-attachments/assets/f618f92c-4146-4dfe-a2cf-1a0634469670)
