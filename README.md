@@ -1,4 +1,6 @@
 # About
+This is a small E-commerce project developed to demonstrate my skills in modern web development technologies.   
+The application consists of a .NET 8 backend and an Angular 18 frontend, utilizing various tools and frameworks to provide a seamless and functional experience.
 
 # Stacks of this project
 
@@ -7,7 +9,10 @@ __Backend__
 - Entity Framework Core (Migrations)
 - Identity Provider
 - MySQL
-- Web Api
+- Redis - _(to store the cart)_
+- SingalR - _(to notify the frontend the payment status)_
+- Stripe Webhook - _(to notify when the payment status changes)_
+- REST Api
 - Swagger
 - Visual Studio Community 2022
 - Google Chrome (using React DevTools) - main browser
@@ -20,24 +25,24 @@ __Frontend - Angular 18__
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
+# Screenshots
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" alt="Screenshot 1" width="32%" />
+  <img src="https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1" alt="Screenshot 2" width="32%" />
+  <img src="https://github.com/user-attachments/assets/f893037e-3559-4122-86c0-ab49cd68804c" alt="Screenshot 3" width="32%" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" alt="Screenshot 1" width="32%" />
+  <img src="https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1" alt="Screenshot 2" width="32%" />
+  <img src="https://github.com/user-attachments/assets/f893037e-3559-4122-86c0-ab49cd68804c" alt="Screenshot 3" width="32%" />
+</p>
+
+
+
+
 # Backend - Setting up the application
-1 - Run migration commands
-```Migrations
-dotnet ef migrations add SeedProducts
-```
-```Migrations
-dotnet ef database update
-```
-2 - Run the application once (press F5) and stop it!
 
-It'll run the SEED logic on the "Progran.cs" file for the initial data in the 'Products' table
-![image](https://github.com/user-attachments/assets/845848f5-9687-4c3d-ac5f-c4cc93b4ebca)
-
-3 - Install the SQLite extension for Visual Studio
-![image](https://github.com/user-attachments/assets/88ab2ade-e37e-4d34-9b90-1efc4d550612)
-
-4 - Open the SQLite window and you're ready to run the queries
-![image](https://github.com/user-attachments/assets/5a2fdebe-30b6-4d15-bab9-1c0dc71f2a4c)
 
 # Frontend - Setting up the application
 
