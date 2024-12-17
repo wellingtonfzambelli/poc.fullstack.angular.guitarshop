@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/dfcd15a9-cf0c-420f-9918-674d172f4952)# About
+# About
 This is a small E-commerce project developed to demonstrate my skills in modern web development technologies.   
 The application consists of a .NET 8 backend and an Angular 18 frontend, utilizing various tools and frameworks to provide a seamless and functional experience.
 
@@ -276,6 +276,9 @@ public sealed class FallbackController : Controller
 
 2 - It will create the file ".yml" on the folder ".github/worklow" folder on your GitHub repository
 ![image](https://github.com/user-attachments/assets/74cc324b-97d8-412a-9326-7271ae8d33f8)
+
+3 - Click on tab "Actions" and you'll see all the branch "main" triggered
+![image](https://github.com/user-attachments/assets/0f78c854-3092-4cdd-a2fd-5d916b77a866)
 
 
 
