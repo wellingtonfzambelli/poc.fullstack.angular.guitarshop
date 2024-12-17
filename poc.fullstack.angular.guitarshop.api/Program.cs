@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Configuration;
 using poc.fullstack.angular.guitarshop.api.Data;
 using poc.fullstack.angular.guitarshop.api.Data.Seed;
@@ -55,7 +54,7 @@ if (app.Environment.IsDevelopment())
 
     try
     {
-        context.Database.Migrate();
+        //context.Database.Migrate();
         DbInitializer.InitializeProduct(context);
         DbInitializer.InitializeDelivery(context);
     }
@@ -65,8 +64,8 @@ if (app.Environment.IsDevelopment())
     }
 }
 
-//app.UseDefaultFiles();
-//app.UseStaticFiles();
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 // CORS
 app.UseCors(opt =>
@@ -83,6 +82,6 @@ app.MapControllers();
 
 app.MapGroup("api/v1/").MapIdentityApi<UserAppIdentity>(); //api/v1/login
 app.MapHub<NotificationHub>("/hub/notification");
-//app.MapFallbackToController("Index", "Fallback");
+app.MapFallbackToController("Index", "Fallback");
 
 app.Run();
