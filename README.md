@@ -1,4 +1,4 @@
-# About
+![image](https://github.com/user-attachments/assets/dfcd15a9-cf0c-420f-9918-674d172f4952)# About
 This is a small E-commerce project developed to demonstrate my skills in modern web development technologies.   
 The application consists of a .NET 8 backend and an Angular 18 frontend, utilizing various tools and frameworks to provide a seamless and functional experience.
 
@@ -268,3 +268,14 @@ public sealed class FallbackController : Controller
 
 8 - On the Azure Server, go to resource group, open the Database you've just created and allow your application to access this database
 ![image](https://github.com/user-attachments/assets/0075edcc-cf5d-465f-9676-e7f0e32760a4)
+
+# CI/CD Deployment - GitHub Actions
+
+1 - On the Azure Server, Recourse Group -> open your "Web App" -> Left menu select Deployment -> Deployment Center -> Select the GitHub as "Source" -> Fill out the form and Save it!
+![image](https://github.com/user-attachments/assets/5cb88143-47b8-4b30-8a0c-7d87efaa9ed6)
+
+2 - It will create the file ".yml" on the folder ".github/worklow" folder on your GitHub repository
+![image](https://github.com/user-attachments/assets/74cc324b-97d8-412a-9326-7271ae8d33f8)
+
+
+
