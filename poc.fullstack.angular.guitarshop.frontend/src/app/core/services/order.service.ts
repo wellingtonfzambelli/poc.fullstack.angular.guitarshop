@@ -9,6 +9,7 @@ import { Order, OrderToCreate } from '../../shared/models/Order';
 
 export class OrderService {
   public baseUrl = environment.baseUrlGuitarshop;
+  public orderComplete = false;
   private http = inject(HttpClient);
 
   public createOrder(orderToCreate: OrderToCreate) {

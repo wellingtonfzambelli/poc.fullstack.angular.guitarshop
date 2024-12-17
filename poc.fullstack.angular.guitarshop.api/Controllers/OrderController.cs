@@ -103,13 +103,11 @@ public sealed class OrderController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<ActionResult<OrderResponseDto>> GetOrderIdAsync(Guid id, CancellationToken ct)
     {
-        var email = User?.GetEmail();
-
         var order = await _guitarShopContext
             .Orders
             .Include(x => x.OrderItems)
             .Include(x => x.DeliveryMethod)
-            .FirstOrDefaultAsync(s => s.BuyerEmail == email, ct);
+            .FirstOrDefaultAsync(s => s.Id == id, ct);
 
         if (order is null)
             return NotFound();

@@ -6,6 +6,7 @@ using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Middleware;
 using poc.fullstack.angular.guitarshop.api.Services;
 using poc.fullstack.angular.guitarshop.api.Services.Redis;
+using poc.fullstack.angular.guitarshop.api.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
@@ -31,6 +32,9 @@ builder.Services.AddIdentityConfiguration();
 // Services
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ICartService, CartService>();
+
+// SignalR
+builder.Services.AddSignalR();
 
 
 var app = builder.Build();
@@ -73,11 +77,12 @@ app.UseCors(opt =>
        .WithOrigins("https://localhost:4200");
 });
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
 app.MapGroup("api/v1/").MapIdentityApi<UserAppIdentity>(); //api/v1/login
-
+app.MapHub<NotificationHub>("/hub/notification");
 //app.MapFallbackToController("Index", "Fallback");
 
 app.Run();

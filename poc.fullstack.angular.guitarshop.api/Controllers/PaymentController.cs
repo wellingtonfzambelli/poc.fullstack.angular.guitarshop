@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using poc.fullstack.angular.guitarshop.api.Data;
 using poc.fullstack.angular.guitarshop.api.Entities;
 using poc.fullstack.angular.guitarshop.api.Entities.OrderAggregate;
+using poc.fullstack.angular.guitarshop.api.Extensions;
 using poc.fullstack.angular.guitarshop.api.Services;
+using poc.fullstack.angular.guitarshop.api.SignalR;
 using Stripe;
 
 namespace poc.fullstack.angular.guitarshop.api.Controllers;
@@ -13,22 +16,25 @@ namespace poc.fullstack.angular.guitarshop.api.Controllers;
 [Route("api/v1/payment")]
 public sealed class PaymentController : ControllerBase
 {
-    private readonly IPaymentService _paymentService;
-    private readonly GuitarShopContext _guitarShopContext;
     private readonly string _whSecret;
+    private readonly GuitarShopContext _guitarShopContext;
+    private readonly IPaymentService _paymentService;
+    private readonly IHubContext<NotificationHub> _hubContext;
     private readonly ILogger<PaymentController> _logger;
 
     public PaymentController
     (
-        IPaymentService paymentService, 
         GuitarShopContext guitarShopContext,
+        IPaymentService paymentService,
         IConfiguration configuration,
+        IHubContext<NotificationHub> hubContext,
         ILogger<PaymentController> logger
     )
     {
-        _paymentService = paymentService;
-        _guitarShopContext = guitarShopContext;
         _whSecret = configuration["StripeSettings:WhSecret"];
+        _guitarShopContext = guitarShopContext;
+        _paymentService = paymentService;
+        _hubContext = hubContext;
         _logger = logger;
     }
 
@@ -49,9 +55,9 @@ public sealed class PaymentController : ControllerBase
         Ok(await _guitarShopContext.DeliveryMethods.ToListAsync(ct));
 
     [HttpPost("webhook")]
-    public async Task<IActionResult> StripeWebhook()
+    public async Task<IActionResult> StripeWebhookAsync(CancellationToken ct)
     {
-        Thread.Sleep(1000);
+        Thread.Sleep(5000);
 
         var json = await new StreamReader(Request.Body).ReadToEndAsync();
 
@@ -62,7 +68,7 @@ public sealed class PaymentController : ControllerBase
             if (stripeEvent.Data.Object is not PaymentIntent intent)
                 return BadRequest("Invalid event data");
 
-            await HandlePaymentIntentSuccededAsync(intent);
+            await HandlePaymentIntentSuccededAsync(intent, ct);
 
             return Ok();
         }
@@ -91,7 +97,7 @@ public sealed class PaymentController : ControllerBase
         }
     }
 
-    private async Task HandlePaymentIntentSuccededAsync(PaymentIntent intent)
+    private async Task HandlePaymentIntentSuccededAsync(PaymentIntent intent, CancellationToken ct)
     {
         if (intent.Status == "succeeded")
         {
@@ -111,6 +117,19 @@ public sealed class PaymentController : ControllerBase
 
             _guitarShopContext.Update(order);
             await _guitarShopContext.SaveChangesAsync();
+
+            await SendSignalRMessageAsync(order, ct);
+        }
+    }
+
+    private async Task SendSignalRMessageAsync(Order order, CancellationToken ct)
+    {
+        var connectionId = NotificationHub.GetConnectionIdByEmail(order.BuyerEmail);
+
+        if (!string.IsNullOrWhiteSpace(connectionId))
+        {
+            await _hubContext.Clients.Client(connectionId)
+                .SendAsync("OrderCompleteNotification", order.ToDto(), ct);
         }
     }
 }
