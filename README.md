@@ -197,6 +197,7 @@ After certificate setup
 
 # Deploy the application
 
+### Frontend
 1 - Create folder where the frontend will publish it.   
 In my case I created a file named "wwwroot" inside the application "poc.fullstack.angular.guitarshop.api"
 
