@@ -203,4 +203,9 @@ In my case I created a file named "wwwroot" inside the application "poc.fullstac
 2 - Open the file "angular.json" and change the path where you'll deploy the frontend application in the directory bellow   
 projects -> architect -> build -> options -> outputPath: ../poc.fullstack.angular.guitarshop.api/wwwroot   
 
-3 - 
+3 - We also needs to change the propertiies "maximumWarning": "1MB" and "maximumError": "2MB". To avoid error during the angular build.   
+
+4- Run the command bellow to generate the build.
+```VS Code
+ng buld
+```
