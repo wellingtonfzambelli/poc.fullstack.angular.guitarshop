@@ -28,7 +28,8 @@ __Frontend - Angular 18__
 # Screenshots
 
 <p align="center">
-  <img src="screenshots/home.jpg?raw=true" alt="Screenshot 1" width="32%" />
+  ![Image 1](./screenshots/home.jpg)
+  <img src="screenshots/home.jpg" alt="Screenshot 1" width="32%" />
   <img src="https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1" alt="Screenshot 2" width="32%" />
   <img src="https://github.com/user-attachments/assets/f893037e-3559-4122-86c0-ab49cd68804c" alt="Screenshot 3" width="32%" />
 </p>
