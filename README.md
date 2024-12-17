@@ -54,6 +54,9 @@ __Frontend - Angular 18__
 
 # Backend - Setting up the application
 
+1 - For Redis, I created a free database on the website https://cloud.redis.io
+![image](https://github.com/user-attachments/assets/b3fa3244-dbd4-4159-9bb6-5a4430e67f65)
+
 
 # Frontend - Setting up the application
 
