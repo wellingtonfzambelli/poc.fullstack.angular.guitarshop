@@ -55,8 +55,9 @@ __Frontend - Angular 18__
 # Backend - Setting up the application
 
 1 - For Redis, I created a free database on the website https://cloud.redis.io and connect locally using "Redis Insight"
-<div align="center">
-  <img src="https://github.com/user-attachments/assets/b3fa3244-dbd4-4159-9bb6-5a4430e67f65" width="40%">
+<div align="center">  
+
+  <img src="https://github.com/user-attachments/assets/56ead3aa-eb82-4e20-a21d-d1f9943b885a" width="40%">
   <img src="https://github.com/user-attachments/assets/834f047b-aaca-47f9-bc8c-43b0d4a2badd" width="40%">
 </div>
 
