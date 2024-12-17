@@ -258,3 +258,7 @@ public sealed class FallbackController : Controller
 
 6 - On the Azure Server, add the "Environment Variables"
 ![image](https://github.com/user-attachments/assets/f618f92c-4146-4dfe-a2cf-1a0634469670)
+
+7 - On the Azure Server, go to resource group and add the SQL Database
+![image](https://github.com/user-attachments/assets/cc12d948-393f-4a1f-8aa2-4a759d68c349)
+
