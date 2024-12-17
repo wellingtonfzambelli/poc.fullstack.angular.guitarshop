@@ -61,6 +61,8 @@ __Frontend - Angular 18__
   <img src="https://github.com/user-attachments/assets/834f047b-aaca-47f9-bc8c-43b0d4a2badd" width="40%">
 </div>
 
+2 - For Gateway Payments, I'm using "Stripe" as developement account
+![image](https://github.com/user-attachments/assets/9c38809a-4cf9-4452-8050-51706311d21b)
 
 
 
