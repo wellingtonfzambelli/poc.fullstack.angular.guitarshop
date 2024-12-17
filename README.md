@@ -262,3 +262,5 @@ public sealed class FallbackController : Controller
 7 - On the Azure Server, go to resource group and add the SQL Database
 ![image](https://github.com/user-attachments/assets/cc12d948-393f-4a1f-8aa2-4a759d68c349)
 
+8 - On the Azure Server, go to resource group, open the Database you've just created and allow your application to access this database
+![image](https://github.com/user-attachments/assets/0075edcc-cf5d-465f-9676-e7f0e32760a4)
