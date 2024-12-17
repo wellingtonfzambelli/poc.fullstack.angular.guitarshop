@@ -7,7 +7,8 @@ __Backend__
 - Entity Framework Core (Migrations)
 - Identity Provider
 - MySQL
-- Redis - to store the cart
+- Redis _(to store the cart)_
+- SingalR _(to notify when the payment status changes)_
 - REST Api
 - Swagger
 - Visual Studio Community 2022
