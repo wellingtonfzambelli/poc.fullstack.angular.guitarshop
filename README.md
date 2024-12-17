@@ -8,7 +8,7 @@ __Backend__
 - .NET 8
 - Entity Framework Core (Migrations)
 - Identity Provider
-- MySQL
+- SQL Server
 - Redis - _(to store the cart)_
 - SingalR - _(to notify the frontend the payment status)_
 - Stripe Webhook - _(to notify when the payment status changes)_
