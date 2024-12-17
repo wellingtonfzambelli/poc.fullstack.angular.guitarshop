@@ -1,4 +1,6 @@
 # About
+This is a small E-commerce project developed to demonstrate my skills in modern web development technologies.   
+The application consists of a .NET 8 backend and an Angular 18 frontend, utilizing various tools and frameworks to provide a seamless and functional experience.
 
 # Stacks of this project
 
