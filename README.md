@@ -197,4 +197,5 @@ After certificate setup
 
 # Deploy the application
 Frontend   
-1 - Open the file "angular.json" and change the path where you'll deploy the frontend application in "projects -> architect -> build -> options -> outputPath: ../poc.fullstack.angular.guitarshop.api/wwwroot"
+1 - Open the file "angular.json" and change the path where you'll deploy the frontend application in the directive bellow   
+"projects -> architect -> build -> options -> outputPath: ../poc.fullstack.angular.guitarshop.api/wwwroot"
