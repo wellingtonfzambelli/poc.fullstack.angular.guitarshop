@@ -54,13 +54,17 @@ __Frontend - Angular 18__
 
 # Backend - Setting up the application
 
-1 - For Redis, I created a free database on the website https://cloud.redis.io and connect locally using "Redis Insight"
+1 - For Database, I'm using SQL Server
+![image](https://github.com/user-attachments/assets/4c290918-5e79-4c2a-8aec-0f7910c4bfc8)
+
+
+2 - For Redis, I created a free database on the website https://cloud.redis.io and connect locally using "Redis Insight"
 <div align="left">
   <img src="https://github.com/user-attachments/assets/56ead3aa-eb82-4e20-a21d-d1f9943b885a" width="40%">
   <img src="https://github.com/user-attachments/assets/834f047b-aaca-47f9-bc8c-43b0d4a2badd" width="40%">
 </div>
 
-2 - For Gateway Payments, I'm using "Stripe" as development account
+3 - For Gateway Payments, I'm using "Stripe" as development account
 <div align="left">
     <img src="https://github.com/user-attachments/assets/9c38809a-4cf9-4452-8050-51706311d21b" width="40%">
     <img src="https://github.com/user-attachments/assets/36a98c9f-ab7a-43f7-8dbb-d6292d89691e" width="40%">
