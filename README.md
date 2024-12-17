@@ -218,3 +218,18 @@ ng buld
 app.UseDefaultFiles();
 app.UseStaticFiles();
 ```
+
+2 - Add the code bellow befero we created the new controller.
+```
+app.MapFallbackToController("Index", "Fallback");
+```
+
+3 - We also need create a new controller named "FallbackController.cs"
+```
+public sealed class FallbackController : Controller
+{
+    public IActionResult Index() =>
+        PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(),
+            "wwwroot", "index.html"), "text/HTML");
+}
+```
