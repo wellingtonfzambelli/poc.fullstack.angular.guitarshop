@@ -210,3 +210,11 @@ projects -> architect -> build -> options -> outputPath: ../poc.fullstack.angula
 ```VS Code
 ng buld
 ```
+
+### Backend
+1 - We need to configure the middleware in the Program.cs adding the code bellow
+
+```Program.cs
+app.UseDefaultFiles();
+app.UseStaticFiles();
+```
