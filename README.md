@@ -195,3 +195,6 @@ After certificate setup
 ![image](https://github.com/user-attachments/assets/350d503a-9550-4711-a037-c2592c4457a0)  
 
 
+# Deploy the application
+Frontend   
+1 - Open the file "angular.json" and change the path where you'll deploy the frontend application in "projects -> architect -> build -> options -> outputPath: ../poc.fullstack.angular.guitarshop.api/wwwroot"
