@@ -25,6 +25,12 @@ __Frontend - Angular 18__
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
+# Screenshots
+![image](https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238)
+![image](https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1)
+
+
+
 # Backend - Setting up the application
 
 
