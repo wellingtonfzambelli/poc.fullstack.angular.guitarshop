@@ -26,8 +26,13 @@ __Frontend - Angular 18__
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
 # Screenshots
-![image](https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238)
-![image](https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1)
+
+<p align="center">
+  <img src="[images/screenshot1.png](https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238)" alt="Screenshot 1" width="32%" />
+  <img src="![image](https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1)" alt="Screenshot 2" width="32%" />
+  <img src="images/screenshot3.png" alt="Screenshot 3" width="32%" />
+</p>
+
 
 
 
