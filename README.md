@@ -27,19 +27,29 @@ __Frontend - Angular 18__
 
 # Screenshots
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" alt="Screenshot 1" width="32%" />
-  <img src="https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1" alt="Screenshot 2" width="32%" />
-  <img src="https://github.com/user-attachments/assets/f893037e-3559-4122-86c0-ab49cd68804c" alt="Screenshot 3" width="32%" />
-</p>
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/308d6490-e910-461e-99d3-b70ca2192238" alt="Screenshot 1" width="32%" />
-  <img src="https://github.com/user-attachments/assets/ea9cc5ce-6683-43fc-9b63-6efcdbc5eab1" alt="Screenshot 2" width="32%" />
-  <img src="https://github.com/user-attachments/assets/f893037e-3559-4122-86c0-ab49cd68804c" alt="Screenshot 3" width="32%" />
-</p>
+### Screenshots
 
-
-
+<div align="center">
+    <img src="screenshots/home.jpg" width="30%">
+    <img src="screenshots/cart-empty.jpg" width="30%">
+    <img src="screenshots/cart-full.jpg" width="30%">
+    <img src="screenshots/catalog-products-filter-search.jpg" width="30%">
+    <img src="screenshots/catalog-products-filter-sort.jpg" width="30%">
+    <img src="screenshots/catalog-products-filter.jpg" width="30%">
+    <img src="screenshots/catalog-products-pagination.jpg" width="30%">
+    <img src="screenshots/catalog-products.jpg" width="30%">
+    <img src="screenshots/logged-menu.jpg" width="30%">
+    <img src="screenshots/logged-order-history-detail.jpg" width="30%">
+    <img src="screenshots/logged-order-history.jpg" width="30%">
+    <img src="screenshots/login.jpg" width="30%">
+    <img src="screenshots/register.jpg" width="30%">
+    <img src="screenshots/checkout-address.jpg" width="30%">   
+    <img src="screenshots/checkout-shipping.jpg" width="30%">    
+    <img src="screenshots/checkout-credit-card.jpg" width="30%">
+    <img src="screenshots/checkout-confirmation.jpg" width="30%">    
+    <img src="screenshots/checkout-processing.jpg" width="30%">  
+    <img src="screenshots/checkout-processed-success.jpg" width="30%">
+</div>
 
 # Backend - Setting up the application
 
