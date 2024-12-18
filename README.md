@@ -274,7 +274,7 @@ public sealed class FallbackController : Controller
 1 - On the Azure Server, Recourse Group -> open your "Web App" -> Left menu select Deployment -> Deployment Center -> Select the GitHub as "Source" -> Fill out the form and Save it!
 ![image](https://github.com/user-attachments/assets/5cb88143-47b8-4b30-8a0c-7d87efaa9ed6)
 
-2 - It will create the file ".yml" on the folder ".github/worklow" folder on your GitHub repository
+2 - It will create the file ".yml" on the folder ".github/worklow" on your GitHub repository
 ![image](https://github.com/user-attachments/assets/74cc324b-97d8-412a-9326-7271ae8d33f8)
 
 3 - Click on tab "Actions" and you'll see all the branch "main" triggered
