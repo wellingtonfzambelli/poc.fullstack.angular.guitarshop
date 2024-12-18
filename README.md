@@ -267,8 +267,9 @@ public sealed class FallbackController : Controller
 8 - On the Azure Server, go to resource group, open the Database you've just created and allow your application to access this database
 ![image](https://github.com/user-attachments/assets/0075edcc-cf5d-465f-9676-e7f0e32760a4)
 
-9 - On your machine, open the CMD terminal and configure the stripe webhook pointing to your online address
-![image](https://github.com/user-attachments/assets/c81a9800-fa45-4c02-aad2-95f7c3265c21)
+9 - Access the Stripe Dashboard and configure a new webhook pointing to your address application
+![image](https://github.com/user-attachments/assets/885d5a85-e006-49de-a3e8-5f11e73dbbf8)
+
 
 
 # CI/CD Deployment - GitHub Actions
