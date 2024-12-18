@@ -280,5 +280,7 @@ public sealed class FallbackController : Controller
 3 - Click on tab "Actions" and you'll see all the branch "main" triggered
 ![image](https://github.com/user-attachments/assets/0f78c854-3092-4cdd-a2fd-5d916b77a866)
 
+4 - On Azure Server, go to Web App and get the address of your application. Now your application is running!
+![image](https://github.com/user-attachments/assets/1a21c543-c121-4ff6-9e09-7b380e83ae34)
 
 
