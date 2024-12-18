@@ -27,8 +27,6 @@ __Frontend - Angular 18__
 
 # Screenshots
 
-### Screenshots
-
 <div align="left">
     <img src="screenshots/home.jpg" width="30%">
     <img src="screenshots/cart-empty.jpg" width="30%">
