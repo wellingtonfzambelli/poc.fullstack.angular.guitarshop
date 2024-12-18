@@ -35,7 +35,7 @@ jobs:
 
       - name: Install deps and build angular app
         run: |
-          cd ./poc.fullstack.angular.guitarshop.api/client
+          cd ${{env.PROJECT_PATH}}/client
           npm install
           ng build
 
