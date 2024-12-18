@@ -27,8 +27,6 @@ __Frontend - Angular 18__
 
 # Screenshots
 
-### Screenshots
-
 <div align="left">
     <img src="screenshots/home.jpg" width="30%">
     <img src="screenshots/cart-empty.jpg" width="30%">
@@ -269,6 +267,11 @@ public sealed class FallbackController : Controller
 8 - On the Azure Server, go to resource group, open the Database you've just created and allow your application to access this database
 ![image](https://github.com/user-attachments/assets/0075edcc-cf5d-465f-9676-e7f0e32760a4)
 
+9 - Access the Stripe Dashboard and configure a new webhook pointing to your address application
+![image](https://github.com/user-attachments/assets/885d5a85-e006-49de-a3e8-5f11e73dbbf8)
+
+
+
 # CI/CD Deployment - GitHub Actions
 
 1 - On the Azure Server, Recourse Group -> open your "Web App" -> Left menu select Deployment -> Deployment Center -> Select the GitHub as "Source" -> Fill out the form and Save it!
@@ -280,5 +283,7 @@ public sealed class FallbackController : Controller
 3 - Click on tab "Actions" and you'll see all the branch "main" triggered
 ![image](https://github.com/user-attachments/assets/0f78c854-3092-4cdd-a2fd-5d916b77a866)
 
+4 - On Azure Server, go to Web App and get the address of your application. Now your application is running!
+![image](https://github.com/user-attachments/assets/1a21c543-c121-4ff6-9e09-7b380e83ae34)
 
 
