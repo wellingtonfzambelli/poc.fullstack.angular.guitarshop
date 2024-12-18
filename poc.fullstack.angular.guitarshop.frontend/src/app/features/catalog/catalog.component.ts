@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { CatalogService } from '../../core/services/catalog.service';
-import { Product } from '../../shared/models/Product';
-import { ProductItemComponent } from "./product-item/product-item.component";
-import { MatDialog } from '@angular/material/dialog';
-import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
+import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
-import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
-import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
+import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { CatalogService } from '../../core/services/catalog.service';
+import { EmptyStateComponent } from '../../shared/components/empty-state/empty-state.component';
+import { CatalogFilterRequest } from '../../shared/models/CatalogFilterRequest';
 import { Pagination } from '../../shared/models/Pagination';
-import { FormsModule, FormSubmittedEvent } from '@angular/forms';
+import { Product } from '../../shared/models/Product';
+import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
+import { ProductItemComponent } from "./product-item/product-item.component";
 
 @Component({
   selector: 'app-shop',
   imports: [    
     ProductItemComponent,
+    EmptyStateComponent,
     MatButton,
     MatIcon,
     MatMenu,
@@ -53,6 +55,11 @@ export class CatalogComponent implements OnInit {
     
     this.guitarShopService.getTypes();
     
+    this.getProducts();
+  }
+
+  resetFilters() {
+    this.catalogFilterRequest = new CatalogFilterRequest();
     this.getProducts();
   }
 
