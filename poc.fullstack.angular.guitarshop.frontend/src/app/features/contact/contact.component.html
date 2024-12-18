@@ -9,34 +9,55 @@
             We'd love to hear from you! Fill out the form below and we'll get back to you as soon as possible
         </p>
         
-        <form class="w-full max-w-3xl space-y-6">
-            <div class="flex flex-col md:flex-row md:space-x-4">
-                <input 
-                    type="text" 
-                    placeholder="Your Name" 
-                    class="w-full px-5 py-3 rounded-lg border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
-                
-                <input 
-                    type="email" 
-                    placeholder="Your Email" 
-                    class="w-full px-5 py-3 rounded-lg border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-                >
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="w-full max-w-3xl space-y-6">
+            <!-- Campo Name -->
+            <div class="flex flex-col space-y-2">
+              <input 
+                matInput
+                formControlName="name"
+                type="text" 
+                placeholder="Your Name" 
+                class="w-full px-5 py-3 rounded-lg border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
+              @if (contactForm.get('name')?.touched && contactForm.get('name')?.hasError('required')) {
+                <span class="text-red-500 text-xs">Name is required</span>
+              }
             </div>
-            
-            <textarea 
+          
+            <div class="flex flex-col space-y-2">
+              <input 
+                matInput
+                formControlName="email"
+                type="email" 
+                placeholder="Your E-mail" 
+                class="w-full px-5 py-3 rounded-lg border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              >
+              @if (contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')) {
+                <span class="text-red-500 text-xs">E-mail is required</span>
+              }
+            </div>
+          
+            <div class="flex flex-col space-y-2">
+              <textarea 
+                matInput
+                formControlName="message"
                 rows="5" 
                 placeholder="Your Message" 
                 class="w-full px-5 py-3 rounded-lg border border-gray-300 text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
-            ></textarea>
-
-            
+              ></textarea>
+              
+              @if (contactForm.get('message')?.touched && contactForm.get('message')?.hasError('required')) {
+                <span class="text-red-500 text-xs">Message is required</span>
+              }
+            </div>
+          
             <button 
-                type="submit" 
-                class="w-full md:w-auto bg-blue-400 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
+              type="submit" 
+              class="w-full md:w-auto bg-blue-400 hover:bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300"
             >
-                Send Message
+              Send Message
             </button>
-        </form>
+          </form>
+          
     </div>
 </div>

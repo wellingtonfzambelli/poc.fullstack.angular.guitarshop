@@ -37,7 +37,7 @@ export class RegisterComponent {
     email: ['', Validators.required, Validators.email],
     password: ['', Validators.required],
   })
-
+ 
   public onSubmit() {
     this.accountService.register(this.registerForm.value).subscribe({
       next: () => {

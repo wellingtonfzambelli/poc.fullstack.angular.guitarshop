@@ -129,7 +129,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   };
 
   public handleDeliveryChange(event: boolean) {
-    debugger
     this.signalCompletionSteps.update((state) => {
       state.delivery = event;
       return state;
