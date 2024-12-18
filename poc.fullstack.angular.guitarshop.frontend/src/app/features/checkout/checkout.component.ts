@@ -128,19 +128,20 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     });
   };
 
+  public handleDeliveryChange(event: boolean) {
+    debugger
+    this.signalCompletionSteps.update((state) => {
+      state.delivery = event;
+      return state;
+    });
+  }
+
   public handlePaymentChange = (event: StripePaymentElementChangeEvent) => {
     this.signalCompletionSteps.update((state) => {
       state.card = event.complete;
       return state;
     });
   };
-
-  public handleDeliveryChange(event: boolean) {
-    this.signalCompletionSteps.update((state) => {
-      state.delivery = event;
-      return state;
-    });
-  }
 
   public async getConfirmationToken() {
     try {

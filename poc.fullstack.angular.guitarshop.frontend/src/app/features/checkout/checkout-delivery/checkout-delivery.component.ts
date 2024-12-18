@@ -28,7 +28,7 @@ export class CheckoutDeliveryComponent implements OnInit {
 
           if(method) {
             this.cartService.selectedDelivery.set(method);
-            this.deliveryComplete.emit(true);
+            this.deliveryComplete.emit(false);
           }
         }
       }
