@@ -33,15 +33,9 @@ jobs:
       - name: Install Angular CLI
         run: npm install -g @angular/cli@18
 
-      - name: Debug folder structure
-        run: |
-          echo "Current Directory: $(pwd)"
-          echo "Workspace: $GITHUB_WORKSPACE"
-          ls -R $GITHUB_WORKSPACE
-
       - name: Install deps and build angular app
         run: |
-          cd $GITHUB_WORKSPACE/poc.fullstack.angular.guitarshop.frontend/client
+          cd poc.fullstack.angular.guitarshop.api/client
           npm install
           ng build
 
