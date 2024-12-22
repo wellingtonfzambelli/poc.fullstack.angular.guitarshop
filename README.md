@@ -25,6 +25,10 @@ __Frontend - Angular 18__
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
 
+# Archtecture
+![Angular GuitarShop (1)](https://github.com/user-attachments/assets/38010718-610a-4e60-be5b-564f5515c3c4)
+
+
 # Screenshots
 
 <div align="left">
