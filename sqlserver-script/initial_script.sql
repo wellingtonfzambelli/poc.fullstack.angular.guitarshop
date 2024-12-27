@@ -1,3 +1,9 @@
+CREATE DATABASE guitarshopangulardb;
+
+
+
+USE guitarshopangulardb;
+
 
 CREATE TABLE [dbo].[__EFMigrationsHistory](
 	[MigrationId] [nvarchar](150) NOT NULL,
@@ -7,12 +13,9 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 	[MigrationId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Addresses]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
 CREATE TABLE [dbo].[Addresses](
 	[Id] [uniqueidentifier] NOT NULL,
 	[Line1] [nvarchar](max) NOT NULL,
@@ -26,12 +29,9 @@ CREATE TABLE [dbo].[Addresses](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
 CREATE TABLE [dbo].[AspNetRoleClaims](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[RoleId] [nvarchar](450) NOT NULL,
@@ -42,12 +42,9 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
 CREATE TABLE [dbo].[AspNetRoles](
 	[Id] [nvarchar](450) NOT NULL,
 	[Name] [nvarchar](256) NULL,
@@ -58,12 +55,9 @@ CREATE TABLE [dbo].[AspNetRoles](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
 CREATE TABLE [dbo].[AspNetUserClaims](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[UserId] [nvarchar](450) NOT NULL,
@@ -74,12 +68,10 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
 CREATE TABLE [dbo].[AspNetUserLogins](
 	[LoginProvider] [nvarchar](450) NOT NULL,
 	[ProviderKey] [nvarchar](450) NOT NULL,
@@ -91,12 +83,10 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 	[ProviderKey] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
 CREATE TABLE [dbo].[AspNetUserRoles](
 	[UserId] [nvarchar](450) NOT NULL,
 	[RoleId] [nvarchar](450) NOT NULL,
@@ -106,12 +96,10 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 	[RoleId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
 CREATE TABLE [dbo].[AspNetUsers](
 	[Id] [nvarchar](450) NOT NULL,
 	[FirstName] [nvarchar](30) NOT NULL,
@@ -136,12 +124,10 @@ CREATE TABLE [dbo].[AspNetUsers](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
 CREATE TABLE [dbo].[AspNetUserTokens](
 	[UserId] [nvarchar](450) NOT NULL,
 	[LoginProvider] [nvarchar](450) NOT NULL,
@@ -154,12 +140,11 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 	[Name] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[DeliveryMethods]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
+
 CREATE TABLE [dbo].[DeliveryMethods](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[ShortName] [nvarchar](max) NOT NULL,
@@ -171,12 +156,11 @@ CREATE TABLE [dbo].[DeliveryMethods](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[OrderItems]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
+
 CREATE TABLE [dbo].[OrderItems](
 	[Id] [uniqueidentifier] NOT NULL,
 	[ItemOrdered_ProductId] [uniqueidentifier] NOT NULL,
@@ -190,12 +174,10 @@ CREATE TABLE [dbo].[OrderItems](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Orders]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
 CREATE TABLE [dbo].[Orders](
 	[Id] [uniqueidentifier] NOT NULL,
 	[OrderDate] [datetime2](7) NOT NULL,
@@ -220,12 +202,12 @@ CREATE TABLE [dbo].[Orders](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Products]    Script Date: 12/17/2024 8:56:56 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
+
+
+
+
 CREATE TABLE [dbo].[Products](
 	[Id] [uniqueidentifier] NOT NULL,
 	[Name] [nvarchar](max) NOT NULL,
@@ -240,9 +222,16 @@ CREATE TABLE [dbo].[Products](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
+
+
+
+
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20241217215418_guitarshop1', N'8.0.11')
-GO
+
+INSERT [dbo].[AspNetUsers] ([Id], [FirstName], [LastName], [AddressId], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'01098264-102a-4c9d-aeff-d96aa904e754', N'wellington', N'zambelli', NULL, N'wellington@gmail.com', N'WELLINGTON@GMAIL.COM', N'wellington@gmail.com', N'WELLINGTON@GMAIL.COM', 0, N'AQAAAAIAAYagAAAAEEeYbBh6+QkiRCkEwp2+/1sz5oBHDeJPir1T6lzoMiGjU++TrcTe2+H0wSIk/Kz+Mg==', N'UCAEJKUAXTWSJT2MP3NIIKFYUIJOA34E', N'd0783915-a8b4-4c0a-a02e-0bb554beba42', NULL, 0, 0, NULL, 1, 0)
+INSERT [dbo].[AspNetUsers] ([Id], [FirstName], [LastName], [AddressId], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'b46be735-296d-4065-a390-00a8479edabb', N'wellington', N'zambelli', NULL, N'wellington@test.com', N'WELLINGTON@TEST.COM', N'wellington@test.com', N'WELLINGTON@TEST.COM', 0, N'AQAAAAIAAYagAAAAENtxwvGNpk8byrN0hF49MUeM8yDPaSrydPV8qSg4r8KUZZIPd0gma2QudMDI5kWYqw==', N'EE7RNGBCVOWAX2RVMSSTOKXJBWJKAU5L', N'e1a88af2-5c18-4d30-b423-a3b31f94fb62', NULL, 0, 0, NULL, 1, 0)
+
+
 SET IDENTITY_INSERT [dbo].[DeliveryMethods] ON 
 
 INSERT [dbo].[DeliveryMethods] ([Id], [ShortName], [DeliveryTime], [Description], [Price]) VALUES (1, N'UPS1', N'1-2 Days', N'Fastest delivery time', 10)
@@ -250,7 +239,9 @@ INSERT [dbo].[DeliveryMethods] ([Id], [ShortName], [DeliveryTime], [Description]
 INSERT [dbo].[DeliveryMethods] ([Id], [ShortName], [DeliveryTime], [Description], [Price]) VALUES (3, N'UPS3', N'5-10 Days', N'Slower but cheap', 2)
 INSERT [dbo].[DeliveryMethods] ([Id], [ShortName], [DeliveryTime], [Description], [Price]) VALUES (4, N'FREE', N'1-2 Weeks', N'Free! You get what you pay for', 0)
 SET IDENTITY_INSERT [dbo].[DeliveryMethods] OFF
-GO
+
+
+
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'49f6b458-65d2-4d17-63d4-08dd1ee61538', N'Fender Stratocaster', N'A legendary electric guitar known for its versatility and iconic design. Perfect for rock, blues, and jazz players.', 1200, N'guitar-Fender-Stratocaster.jpg', N'Electric Guitar', N'Fender', 15)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'43395a6a-82f0-4d51-63d5-08dd1ee61538', N'Gibson Les Paul', N'A classic guitar delivering rich tones and sustain. Ideal for professional guitarists seeking premium quality.', 2500, N'guitar-Gibson-Les-Paul.jpg', N'Electric Guitar', N'Gibson', 10)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'83202f68-2c7b-4361-63d6-08dd1ee61538', N'PRS SE Custom 24', N'A versatile guitar with a warm, resonant tone. Perfect for studio and live performances.', 849, N'guitar-PRS-SE-Custom-24.jpg', N'Electric Guitar', N'PRS', 12)
@@ -268,57 +259,141 @@ INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Ty
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'8c217cac-0423-4c4e-63e2-08dd1ee61538', N'Ampeg SVT Bass Amp', N'A high-performance bass amplifier delivering exceptional sound quality. A favorite among bass players.', 1400, N'amp-Ampeg-SVT-Bass-Amp.jpg', N'Amplifier', N'Ampeg', 5)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'5225ef28-f9fa-45b3-63e3-08dd1ee61538', N'Marshall DSL40C Tube Combo Amp', N'A classic tube amplifier delivering rich and powerful sound for professionals.', 749, N'amp-Marshall-DSL40C-Tube-Combo-Amp.jpg', N'Amplifier', N'Marshall', 7)
 INSERT [dbo].[Products] ([Id], [Name], [Description], [Price], [PictureUrl], [Type], [Brand], [QuantityInStock]) VALUES (N'6168a43d-08d1-4bf7-63e4-08dd1ee61538', N'Line 6 Spider V 60 MkII', N'A feature-packed amplifier offering a variety of tones and effects for all genres.', 399, N'amp-Line-6-Spider-V-60-MkII.jpeg', N'Amplifier', N'Line 6', 10)
-GO
+
+
+
+
+SET ANSI_PADDING ON
+
+
+CREATE NONCLUSTERED INDEX [IX_AspNetRoleClaims_RoleId] ON [dbo].[AspNetRoleClaims]
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex] ON [dbo].[AspNetRoles]
+(
+	[NormalizedName] ASC
+)
+WHERE ([NormalizedName] IS NOT NULL)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE NONCLUSTERED INDEX [IX_AspNetUserClaims_UserId] ON [dbo].[AspNetUserClaims]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE NONCLUSTERED INDEX [IX_AspNetUserLogins_UserId] ON [dbo].[AspNetUserLogins]
+(
+	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE NONCLUSTERED INDEX [IX_AspNetUserRoles_RoleId] ON [dbo].[AspNetUserRoles]
+(
+	[RoleId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE NONCLUSTERED INDEX [EmailIndex] ON [dbo].[AspNetUsers]
+(
+	[NormalizedEmail] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+
+CREATE NONCLUSTERED INDEX [IX_AspNetUsers_AddressId] ON [dbo].[AspNetUsers]
+(
+	[AddressId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+SET ANSI_PADDING ON
+
+
+CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex] ON [dbo].[AspNetUsers]
+(
+	[NormalizedUserName] ASC
+)
+WHERE ([NormalizedUserName] IS NOT NULL)
+WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+
+CREATE NONCLUSTERED INDEX [IX_OrderItems_OrderId] ON [dbo].[OrderItems]
+(
+	[OrderId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
+CREATE NONCLUSTERED INDEX [IX_Orders_DeliveryMethodId] ON [dbo].[Orders]
+(
+	[DeliveryMethodId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+
 ALTER TABLE [dbo].[AspNetRoleClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
 REFERENCES [dbo].[AspNetRoles] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetRoleClaims] CHECK CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId]
-GO
+
 ALTER TABLE [dbo].[AspNetUserClaims]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetUserClaims] CHECK CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId]
-GO
+
 ALTER TABLE [dbo].[AspNetUserLogins]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetUserLogins] CHECK CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId]
-GO
+
 ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY([RoleId])
 REFERENCES [dbo].[AspNetRoles] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId]
-GO
+
 ALTER TABLE [dbo].[AspNetUserRoles]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetUserRoles] CHECK CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId]
-GO
+
 ALTER TABLE [dbo].[AspNetUsers]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUsers_Addresses_AddressId] FOREIGN KEY([AddressId])
 REFERENCES [dbo].[Addresses] ([Id])
-GO
+
 ALTER TABLE [dbo].[AspNetUsers] CHECK CONSTRAINT [FK_AspNetUsers_Addresses_AddressId]
-GO
+
 ALTER TABLE [dbo].[AspNetUserTokens]  WITH CHECK ADD  CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY([UserId])
 REFERENCES [dbo].[AspNetUsers] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[AspNetUserTokens] CHECK CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId]
-GO
+
 ALTER TABLE [dbo].[OrderItems]  WITH CHECK ADD  CONSTRAINT [FK_OrderItems_Orders_OrderId] FOREIGN KEY([OrderId])
 REFERENCES [dbo].[Orders] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[OrderItems] CHECK CONSTRAINT [FK_OrderItems_Orders_OrderId]
-GO
+
 ALTER TABLE [dbo].[Orders]  WITH CHECK ADD  CONSTRAINT [FK_Orders_DeliveryMethods_DeliveryMethodId] FOREIGN KEY([DeliveryMethodId])
 REFERENCES [dbo].[DeliveryMethods] ([Id])
 ON DELETE CASCADE
-GO
+
 ALTER TABLE [dbo].[Orders] CHECK CONSTRAINT [FK_Orders_DeliveryMethods_DeliveryMethodId]
-GO
+
+USE [master]
+
+ALTER DATABASE [guitarshop-angular-db] SET  READ_WRITE 
+

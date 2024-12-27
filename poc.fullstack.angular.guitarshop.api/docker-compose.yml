@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  guitarshopapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: guitarshopapi
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sqlserver
+      - redis
+    environment:
+      # Database SQL SERVER
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=guitarshopangulardb;User Id=sa;Password=YourStrong!Password;Encrypt=False;TrustServerCertificate=True;"
+      
+      # Redis
+      RedisConnection__Host: "redis"
+      RedisConnection__Port: "6379"
+      RedisConnection__User: "default"
+      RedisConnection__Password: ""
+
+      # Stripe
+      # StripeSettings__PublishableKey": ""
+      # StripeSettings__SecretKey": ""
+      # StripeSettings__WhSecret": ""
+      
+      # Enable Swagger
+      ASPNETCORE_ENVIRONMENT: "Development"
+    networks:
+      - guitarshop-network
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      SA_PASSWORD: "YourStrong!Password"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - guitarshop-network
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8081:8080"
+    networks:
+      - guitarshop-network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - guitarshop-network
+
+networks:
+  guitarshop-network:
+    driver: bridge
