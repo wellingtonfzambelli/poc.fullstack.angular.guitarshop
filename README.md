@@ -12,6 +12,7 @@ __Backend__
 - Redis - _(to store the cart)_
 - SingalR - _(to notify the frontend the payment status)_
 - Stripe Webhook - _(to notify when the payment status changes)_
+- Docker (Docker Compose)
 - REST Api
 - Swagger
 - Visual Studio Community 2022
@@ -24,6 +25,11 @@ __Frontend - Angular 18__
 - Stripe - Payment Gateway
 - mkcert - localhost certificate - _(https://github.com/FiloSottile/mkcert)_
 - Visual Studio Code - Extensions (Angular Language Service, Tailwind CSS IntelliSense, Auto Rename Tag)
+
+# Architecture
+![Angular GuitarShop](https://github.com/user-attachments/assets/a8e553fc-10c7-411b-80e7-0d6ba6023d12)
+
+
 
 # Screenshots
 
