@@ -12,6 +12,7 @@ __Backend__
 - Redis - _(to store the cart)_
 - SingalR - _(to notify the frontend the payment status)_
 - Stripe Webhook - _(to notify when the payment status changes)_
+- Docker (Docker Compose)
 - REST Api
 - Swagger
 - Visual Studio Community 2022
