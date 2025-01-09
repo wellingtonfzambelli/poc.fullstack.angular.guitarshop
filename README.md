@@ -226,7 +226,7 @@ projects -> architect -> build -> options -> outputPath
 ```angular.json
 "outputPath": {
    "base": "../poc.fullstack.angular.guitarshop.api/wwwroot",
-  "browser": ""
+   "browser": ""
 }
 ```
 
