@@ -8,11 +8,12 @@ __Backend__
 - .NET 8
 - Entity Framework Core (Migrations)
 - Identity Provider
+- Docker (Docker Compose)
+- CI/CD - Github Actions - Azure Portal
 - SQL Server
 - Redis - _(to store the cart)_
 - SingalR - _(to notify the frontend the payment status)_
 - Stripe Webhook - _(to notify when the payment status changes)_
-- Docker (Docker Compose)
 - REST Api
 - Swagger
 - Visual Studio Community 2022
@@ -225,7 +226,7 @@ projects -> architect -> build -> options -> outputPath
 ```angular.json
 "outputPath": {
    "base": "../poc.fullstack.angular.guitarshop.api/wwwroot",
-  "browser": ""
+   "browser": ""
 }
 ```
 
