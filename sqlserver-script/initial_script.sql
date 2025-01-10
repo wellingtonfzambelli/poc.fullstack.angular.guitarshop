@@ -1,9 +1,3 @@
-CREATE DATABASE guitarshopangulardb;
-
-
-
-USE guitarshopangulardb;
-
 
 CREATE TABLE [dbo].[__EFMigrationsHistory](
 	[MigrationId] [nvarchar](150) NOT NULL,
@@ -18,12 +12,12 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 
 CREATE TABLE [dbo].[Addresses](
 	[Id] [uniqueidentifier] NOT NULL,
-	[Line1] [nvarchar](max) NOT NULL,
-	[Line2] [nvarchar](max) NOT NULL,
-	[City] [nvarchar](max) NOT NULL,
-	[State] [nvarchar](max) NOT NULL,
-	[PostalCode] [nvarchar](max) NOT NULL,
-	[Country] [nvarchar](max) NOT NULL,
+	[Line1] [nvarchar](100) NOT NULL,
+	[Line2] [nvarchar](100) NOT NULL,
+	[City] [nvarchar](100) NOT NULL,
+	[State] [nvarchar](100) NOT NULL,
+	[PostalCode] [nvarchar](20) NOT NULL,
+	[Country] [nvarchar](100) NOT NULL,
  CONSTRAINT [PK_Addresses] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
