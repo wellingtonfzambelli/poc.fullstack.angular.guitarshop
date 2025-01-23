@@ -13,7 +13,7 @@ services:
       - redis
     environment:
       # Database SQL SERVER
-      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=guitarshopangulardb;User Id=sa;Password=YourStrong!Password;Encrypt=False;TrustServerCertificate=True;"
+      ConnectionStrings__DefaultConnection: "Server=mysql;Database=guitarshopangulardb;User=myuser;Password=YourStrong!Password;"
       
       # Redis
       RedisConnection__Host: "redis"
@@ -31,16 +31,32 @@ services:
     networks:
       - guitarshop-network
 
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
+  # sqlserver:
+  #   image: mcr.microsoft.com/mssql/server:2022-latest
+  #   container_name: sqlserver
+  #   environment:
+  #     SA_PASSWORD: "YourStrong!Password"
+  #     ACCEPT_EULA: "Y"
+  #   ports:
+  #     - "1433:1433"
+  #   networks:
+  #     - guitarshop-network
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
     environment:
-      SA_PASSWORD: "YourStrong!Password"
-      ACCEPT_EULA: "Y"
+      MYSQL_DATABASE: "guitarshopangulardb"
+      MYSQL_USER: "myuser"
+      MYSQL_ROOT_PASSWORD: "YourStrong!Password"
+      MYSQL_PASSWORD: "YourStrong!Password"
     ports:
-      - "1433:1433"
+      - "3316:3316"
+    volumes:
+      - ./MysqlScript/volume-mysql:/var/lib/mysql
+     #- ./MysqlScript/initial_script.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
-      - guitarshop-network
+      - mysql-compose-network
 
   adminer:
     image: adminer
